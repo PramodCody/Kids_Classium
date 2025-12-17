@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://csuhj8pxfpyp0"]
+
+[ext_resource type="Script" uid="uid://0dmd21i1d2n0" path="res://main_screen.gd" id="1_kwhh3"]
+[ext_resource type="Texture2D" uid="uid://crai8q0avs77w" path="res://assests/images/Background_Image.png" id="1_w0p2i"]
+[ext_resource type="FontFile" uid="uid://r6l44rfpm70q" path="res://assests/fonts/button.otf" id="2_w0p2i"]
+[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://assests/sounds/Button_Sound.mp3" id="3_7a4el"]
+[ext_resource type="AudioStream" uid="uid://b4orfbh16q2ir" path="res://assests/sounds/Background_Sound.mp3" id="5_4sclt"]
+
+[node name="Main_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kwhh3")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w0p2i")
+expand_mode = 1
+
+[node name="Play_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -550.0
+offset_right = 227.0
+offset_bottom = -342.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.5647059, 0.28627452, 1)
+theme_override_colors/font_outline_color = Color(0.4627451, 0.007843138, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_w0p2i")
+theme_override_font_sizes/font_size = 200
+text = "Play"
+flat = true
+
+[node name="Levels_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -293.0
+offset_top = -100.0
+offset_right = 355.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.5647059, 0.28627452, 1)
+theme_override_colors/font_outline_color = Color(0.4627451, 0.007843138, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_w0p2i")
+theme_override_font_sizes/font_size = 200
+text = "Levels"
+flat = true
+
+[node name="Exit_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = 430.0
+offset_right = 225.0
+offset_bottom = 638.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.5647059, 0.28627452, 1)
+theme_override_colors/font_outline_color = Color(0.4627451, 0.007843138, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_w0p2i")
+theme_override_font_sizes/font_size = 200
+text = "Exit"
+flat = true
+
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7a4el")
+
+[node name="Background_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4sclt")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Levels_Button" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="Exit_Button" to="." method="_on_exit_button_pressed"]
