@@ -20,8 +20,8 @@ boot_splash/icon="uid://c22w66hv64n0y"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=2400
+window/size/viewport_width=2400
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [input_devices]
