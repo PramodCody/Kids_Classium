@@ -45,47 +45,33 @@ stretch_mode = 0
 script = ExtResource("4_sj757")
 
 [node name="Levels_Button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -400.0
-offset_top = -200.0
-offset_right = -200.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 1870.0
+offset_top = 830.0
+offset_right = 2070.0
+offset_bottom = 1030.0
 texture_normal = ExtResource("4_sjiej")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("5_4sv2p")
 
 [node name="Exit_Button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -199.0
-offset_right = 200.0
-offset_bottom = 1.0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 100.0
+offset_top = 830.0
+offset_right = 300.0
+offset_bottom = 1030.0
 texture_normal = ExtResource("5_sjiej")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("7_0osx7")
 
 [node name="Settings_Button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -200.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 830.0
+offset_right = 2300.0
+offset_bottom = 1030.0
 texture_normal = ExtResource("6_sjiej")
 ignore_texture_size = true
 stretch_mode = 4
@@ -100,6 +86,26 @@ stream = ExtResource("5_4sclt")
 volume_db = 10.0
 autoplay = true
 parameters/looping = true
+
+[node name="Safe_Area" type="Node2D" parent="."]
+
+[node name="Left" type="ColorRect" parent="Safe_Area"]
+offset_right = 100.0
+offset_bottom = 1080.0
+
+[node name="Right" type="ColorRect" parent="Safe_Area"]
+offset_left = 2300.0
+offset_right = 2400.0
+offset_bottom = 1080.0
+
+[node name="Top" type="ColorRect" parent="Safe_Area"]
+offset_right = 2400.0
+offset_bottom = 50.0
+
+[node name="Bottom" type="ColorRect" parent="Safe_Area"]
+offset_top = 1030.0
+offset_right = 2400.0
+offset_bottom = 1080.0
 
 [connection signal="button_down" from="Play_Button" to="Play_Button" method="_on_button_down"]
 [connection signal="button_up" from="Play_Button" to="Play_Button" method="_on_button_up"]
