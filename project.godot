@@ -13,8 +13,6 @@ config_version=5
 config/name="Kids_Classium"
 run/main_scene="uid://csuhj8pxfpyp0"
 config/features=PackedStringArray("4.5", "Mobile")
-boot_splash/bg_color=Color(0.9865412, 0.8782785, 0.4621815, 1)
-boot_splash/image="uid://c3fiowyehrw08"
 config/icon="uid://c22w66hv64n0y"
 boot_splash/icon="uid://c22w66hv64n0y"
 
