@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://c61eu6xs41ldf"]
+
+[ext_resource type="Texture2D" uid="uid://batur7wifolsq" path="res://assests/images/Background.jpg" id="1_ptj6e"]
+[ext_resource type="Texture2D" uid="uid://dw2tjwsr63lyg" path="res://assests/images/One.png" id="2_qwrqd"]
+[ext_resource type="Script" uid="uid://cyu70o7q40ln7" path="res://path_2d_2(1).gd" id="3_gkwk8"]
+[ext_resource type="Script" uid="uid://lmp13qa00ihk" path="res://path_2d(1).gd" id="3_qwrqd"]
+
+[sub_resource type="Curve2D" id="Curve2D_eby7c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1765, 166, 0, 0, 0, 0, 1765, 865)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ubraw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1599, 346, 0, 0, 0, 0, 1765, 206)
+}
+point_count = 2
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ptj6e")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -9
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(1596, 517)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("2_qwrqd")
+
+[node name="Path2D2" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_eby7c")
+script = ExtResource("3_gkwk8")
+
+[node name="Line2D" type="Line2D" parent="Node2D/Path2D2"]
+width = 100.0
+antialiased = true
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_ubraw")
+script = ExtResource("3_qwrqd")
+
+[node name="Line2D" type="Line2D" parent="Node2D/Path2D"]
+width = 100.0
+antialiased = true
