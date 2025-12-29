@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://do451oqvtmxxh" path="res://assests/images/Home_Button.png" id="1_jikk4"]
 [ext_resource type="Texture2D" uid="uid://batur7wifolsq" path="res://assests/images/Background.jpg" id="1_ptj6e"]
-[ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://home_button.gd" id="2_gyeet"]
+[ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://scripts/home_button.gd" id="2_gyeet"]
 [ext_resource type="Texture2D" uid="uid://dw2tjwsr63lyg" path="res://assests/images/One.png" id="2_qwrqd"]
 [ext_resource type="Script" uid="uid://c7h0idksumhlk" path="res://scripts/second__line.gd" id="3_a0j4s"]
 [ext_resource type="Script" uid="uid://lmp13qa00ihk" path="res://scripts/first_line.gd" id="3_qwrqd"]
-[ext_resource type="Texture2D" uid="uid://ddl1lxmss11g7" path="res://scripts/Retry_Button.png" id="6_smwyr"]
-[ext_resource type="Texture2D" uid="uid://cdpda6p7rl51a" path="res://scripts/Next_Button.png" id="7_tedvs"]
+[ext_resource type="Texture2D" uid="uid://ddl1lxmss11g7" path="res://assests/images/Retry_Button.png" id="6_smwyr"]
+[ext_resource type="Texture2D" uid="uid://cdpda6p7rl51a" path="res://assests/images/Next_Button.png" id="7_tedvs"]
 [ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://scripts/retry_button.gd" id="8_2wi7h"]
 [ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://assests/sounds/Button_Sound.mp3" id="9_2wi7h"]
-[ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://next_button.gd" id="10_4s4xf"]
+[ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://scripts/next_button.gd" id="10_4s4xf"]
 
 [sub_resource type="Curve2D" id="Curve2D_eby7c"]
 _data = {
@@ -32,17 +32,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="Home_Button" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = 280.0
-offset_bottom = 230.0
-texture_normal = ExtResource("1_jikk4")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("2_gyeet")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -10
@@ -105,13 +94,24 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("10_4s4xf")
 
+[node name="Home_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 280.0
+offset_bottom = 230.0
+texture_normal = ExtResource("1_jikk4")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("2_gyeet")
+
 [node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_2wi7h")
 
-[connection signal="button_down" from="Home_Button" to="Home_Button" method="_on_button_down"]
-[connection signal="button_up" from="Home_Button" to="Home_Button" method="_on_button_up"]
 [connection signal="tracing_changed" from="Node2D/First_Line" to="Node2D/Second _Line" method="_on_first_line_tracing_changed"]
 [connection signal="button_down" from="Retry_Button" to="Retry_Button" method="_on_button_down"]
 [connection signal="button_up" from="Retry_Button" to="Retry_Button" method="_on_button_up"]
 [connection signal="button_down" from="Next_Button" to="Next_Button" method="_on_button_down"]
 [connection signal="button_up" from="Next_Button" to="Next_Button" method="_on_button_up"]
+[connection signal="button_down" from="Home_Button" to="Home_Button" method="_on_button_down"]
+[connection signal="button_up" from="Home_Button" to="Home_Button" method="_on_button_up"]

@@ -36,4 +36,4 @@ func _on_button_down() -> void:
 	.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	await $"../Button_Sound".finished
-	get_tree().change_scene_to_file("res://Level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/Level_1.tscn")
