@@ -12,7 +12,7 @@ var first_line_curve = $".".curve
 var first_line_point_count = first_line_curve.get_point_count()
 
 var is_first_line_first_point_completed = false
-#var is_first_line_end_point_completed = false
+var is_first_line_end_point_completed = false
 
 func check_tracing(global_pos: Vector2):
 	# Convert global position to Path2D's local space
@@ -22,13 +22,17 @@ func check_tracing(global_pos: Vector2):
 	var first_line_end_point = first_line_curve.get_point_position(first_line_point_count - 1)
 	
 	if local_pos.distance_to(target_point) < 100:
+		if local_pos.distance_to(first_line_first_point) < 50:
+			line.add_point(first_line_first_point)
+			is_first_line_first_point_completed = true
+		if local_pos.distance_to(first_line_end_point) < 50:
+			line.add_point(first_line_end_point)
+			is_first_line_end_point_completed = true
+			
 		line.add_point(target_point)
 		current_point_index += 1
-		
-		if target_point == first_line_first_point:
-			is_first_line_first_point_completed = true
 			
-		if target_point == first_line_end_point and is_first_line_first_point_completed:
+		if is_first_line_first_point_completed and is_first_line_end_point_completed:
 			print("first_line_completed")
 			is_tracing = false
 			is_second_line_tracing = true

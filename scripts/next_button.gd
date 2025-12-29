@@ -3,6 +3,15 @@ extends TextureButton
 var scale_strength = 0.1
 var animation_speed = 0.1
 
+func _ready():
+	visible = false
+	modulate.a = 0.0
+
+func show_with_fade():
+	visible = true
+	modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _on_button_down() -> void:
 	$"../Button_Sound".play()
