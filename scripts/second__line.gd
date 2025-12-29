@@ -26,6 +26,7 @@ func check_tracing(global_pos: Vector2):
 		if target_point == second_line_end_point and is_second_line_first_point_completed:
 			print("second_line_completed")
 			is_tracing = false
+			await get_tree().create_timer(2).timeout
 			$"../../Retry_Button".visible = true
 			$"../../Next_Button".visible = true
 
@@ -36,5 +37,5 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_first_line_tracing_changed(is_second_line_tracing: Variant) -> void:
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.5).timeout
 	is_tracing = true

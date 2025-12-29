@@ -1,26 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://c61eu6xs41ldf"]
+[gd_scene load_steps=16 format=3 uid="uid://c61eu6xs41ldf"]
 
+[ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://assests/images/Background.png" id="1_crfhr"]
 [ext_resource type="Texture2D" uid="uid://do451oqvtmxxh" path="res://assests/images/Home_Button.png" id="1_jikk4"]
-[ext_resource type="Texture2D" uid="uid://batur7wifolsq" path="res://assests/images/Background.jpg" id="1_ptj6e"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://scripts/home_button.gd" id="2_gyeet"]
 [ext_resource type="Texture2D" uid="uid://dw2tjwsr63lyg" path="res://assests/images/One.png" id="2_qwrqd"]
 [ext_resource type="Script" uid="uid://c7h0idksumhlk" path="res://scripts/second__line.gd" id="3_a0j4s"]
 [ext_resource type="Script" uid="uid://lmp13qa00ihk" path="res://scripts/first_line.gd" id="3_qwrqd"]
+[ext_resource type="Texture2D" uid="uid://brdvulcbbm8st" path="res://assests/images/fill_texture.jpg" id="5_5viah"]
 [ext_resource type="Texture2D" uid="uid://ddl1lxmss11g7" path="res://assests/images/Retry_Button.png" id="6_smwyr"]
 [ext_resource type="Texture2D" uid="uid://cdpda6p7rl51a" path="res://assests/images/Next_Button.png" id="7_tedvs"]
 [ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://scripts/retry_button.gd" id="8_2wi7h"]
 [ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://assests/sounds/Button_Sound.mp3" id="9_2wi7h"]
 [ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://scripts/next_button.gd" id="10_4s4xf"]
+[ext_resource type="AudioStream" uid="uid://b4orfbh16q2ir" path="res://assests/sounds/Background_Sound.mp3" id="12_a4osw"]
 
 [sub_resource type="Curve2D" id="Curve2D_eby7c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1449, 567, 0, 0, 0, 0, 1753, 354)
+"points": PackedVector2Array(0, 0, 0, 0, 1692, 609, 0, 0, 0, 0, 1950, 347)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_ubraw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1792, 283, 0, 0, 0, 0, 1792, 948)
+"points": PackedVector2Array(0, 0, 0, 0, 1976, 289, 0, 0, 0, 0, 1976, 1030)
 }
 point_count = 2
 
@@ -41,12 +43,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ptj6e")
+texture = ExtResource("1_crfhr")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D" type="Node2D" parent="."]
 z_index = -9
+position = Vector2(-279, -97)
 metadata/_edit_group_ = true
 
 [node name="First_Line" type="Path2D" parent="Node2D"]
@@ -54,7 +57,8 @@ curve = SubResource("Curve2D_eby7c")
 script = ExtResource("3_qwrqd")
 
 [node name="Line2D" type="Line2D" parent="Node2D/First_Line"]
-width = 200.0
+width = 180.0
+default_color = Color(0.70933944, 0.136585, 0.6294618, 1)
 antialiased = true
 
 [node name="Second _Line" type="Path2D" parent="Node2D"]
@@ -62,16 +66,19 @@ curve = SubResource("Curve2D_ubraw")
 script = ExtResource("3_a0j4s")
 
 [node name="Line2D" type="Line2D" parent="Node2D/Second _Line"]
-width = 200.0
+width = 180.0
+texture = ExtResource("5_5viah")
+texture_mode = 1
 antialiased = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(1748.0001, 620)
-scale = Vector2(0.6, 0.6)
+position = Vector2(1877, 676)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_qwrqd")
 
 [node name="Retry_Button" type="TextureButton" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
 offset_left = 1900.0
 offset_top = 830.0
@@ -84,6 +91,7 @@ script = ExtResource("8_2wi7h")
 
 [node name="Next_Button" type="TextureButton" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
 offset_left = 2100.0
 offset_top = 830.0
@@ -107,6 +115,12 @@ script = ExtResource("2_gyeet")
 
 [node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_2wi7h")
+
+[node name="Background_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_a4osw")
+volume_db = 5.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="tracing_changed" from="Node2D/First_Line" to="Node2D/Second _Line" method="_on_first_line_tracing_changed"]
 [connection signal="button_down" from="Retry_Button" to="Retry_Button" method="_on_button_down"]

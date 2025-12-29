@@ -1,11 +1,9 @@
 extends Path2D
 
 @onready var line = $Line2D
-@onready var area = $"../Area2D"
+
 signal tracing_changed(is_second_line_tracing)
 var is_second_line_tracing = false
-#func _ready() -> void:
-	#second_line.visible = false
 
 var is_tracing : bool = true
 
@@ -26,6 +24,7 @@ func check_tracing(global_pos: Vector2):
 	if local_pos.distance_to(target_point) < 100:
 		line.add_point(target_point)
 		current_point_index += 1
+		
 		if target_point == first_line_first_point:
 			is_first_line_first_point_completed = true
 			
