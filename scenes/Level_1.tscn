@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c61eu6xs41ldf"]
+[gd_scene load_steps=15 format=3 uid="uid://c61eu6xs41ldf"]
 
 [ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://assests/images/Background.png" id="1_crfhr"]
 [ext_resource type="Texture2D" uid="uid://do451oqvtmxxh" path="res://assests/images/Home_Button.png" id="1_jikk4"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dw2tjwsr63lyg" path="res://assests/images/One.png" id="2_qwrqd"]
 [ext_resource type="Script" uid="uid://c7h0idksumhlk" path="res://scripts/second__line.gd" id="3_a0j4s"]
 [ext_resource type="Script" uid="uid://lmp13qa00ihk" path="res://scripts/first_line.gd" id="3_qwrqd"]
-[ext_resource type="Texture2D" uid="uid://brdvulcbbm8st" path="res://assests/images/fill_texture.jpg" id="5_5viah"]
 [ext_resource type="Texture2D" uid="uid://ddl1lxmss11g7" path="res://assests/images/Retry_Button.png" id="6_smwyr"]
 [ext_resource type="Texture2D" uid="uid://cdpda6p7rl51a" path="res://assests/images/Next_Button.png" id="7_tedvs"]
 [ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://scripts/retry_button.gd" id="8_2wi7h"]
@@ -67,7 +66,7 @@ script = ExtResource("3_a0j4s")
 
 [node name="Line2D" type="Line2D" parent="Node2D/Second _Line"]
 width = 180.0
-texture = ExtResource("5_5viah")
+default_color = Color(0.07458741, 0.76730627, 8.856058e-06, 1)
 texture_mode = 1
 antialiased = true
 

@@ -35,6 +35,7 @@ func check_tracing(global_pos: Vector2):
 		if is_first_line_first_point_completed and is_first_line_end_point_completed:
 			print("first_line_completed")
 			is_tracing = false
+			
 			is_second_line_tracing = true
 			tracing_changed.emit(is_second_line_tracing)
 
