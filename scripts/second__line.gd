@@ -8,7 +8,7 @@ var current_point_index = 0
 var second_line_curve = $".".curve
 var second_line_point_count = second_line_curve.get_point_count()
 
-var is_second_line_first_point_completed = false
+var is_second_line_start_point_completed = false
 var is_second_line_end_point_completed = false
 
 func check_tracing(global_pos: Vector2):
@@ -20,25 +20,21 @@ func check_tracing(global_pos: Vector2):
 	
 	if local_pos.distance_to(target_point) < 100:
 
-		if local_pos.distance_to(second_line_first_point) < 50:
+		if local_pos.distance_to(second_line_first_point) < 100:
 			line.add_point(second_line_first_point)
-			is_second_line_first_point_completed = true
-		if local_pos.distance_to(second_line_end_point) < 50:
+			is_second_line_start_point_completed = true
+		if local_pos.distance_to(second_line_end_point) < 100:
 			line.add_point(second_line_end_point)
 			is_second_line_end_point_completed = true
 			
 		line.add_point(target_point)
 		current_point_index += 1
 
-		if is_second_line_first_point_completed and is_second_line_end_point_completed:
-			print("second_line_completed")
+		if is_second_line_start_point_completed and is_second_line_end_point_completed:
 			is_tracing = false
 			$"../../Retry_Button".show_with_fade()
 			$"../../Next_Button".show_with_fade()
 
-
-#func _ready() -> void:
-	#_input(InputEvent)
 
 func _input(event: InputEvent) -> void:
 	if is_tracing:
