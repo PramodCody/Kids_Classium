@@ -29,9 +29,10 @@ func check_tracing(global_pos: Vector2):
 		if local_pos.distance_to(second_line_end_point) < 100:
 			line.add_point(second_line_end_point)
 			is_second_line_end_point_completed = true
-			
-		line.add_point(target_point)
-		current_point_index += 1
+		
+		if is_second_line_start_point_completed:
+			line.add_point(target_point)
+			current_point_index += 1
 
 		if is_second_line_start_point_completed and is_second_line_end_point_completed:
 			is_tracing = false
@@ -53,4 +54,5 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_first_line_tracing_changed(is_second_line_tracing: Variant) -> void:
+	await get_tree().create_timer(0.2).timeout
 	is_tracing = true
