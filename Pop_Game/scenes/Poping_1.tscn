@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://8nlh2lbgomlv"]
+
+[ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://Trace_Game/assests/images/Background.png" id="1_a1ij8"]
+[ext_resource type="Texture2D" uid="uid://bbslixmmiqew0" path="res://Pop_Game/assests/images/Bubble.png" id="2_qitpu"]
+[ext_resource type="Script" uid="uid://cif56bo0l5jg7" path="res://Pop_Game/scripts/Poping_1/pop.gd" id="2_ugcpd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugcpd"]
+font_size = 200
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qitpu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_a1ij8")
+
+[node name="Bubble_Pop" type="Sprite2D" parent="."]
+texture = ExtResource("2_qitpu")
+script = ExtResource("2_ugcpd")
+
+[node name="Label" type="Label" parent="Bubble_Pop"]
+offset_left = -70.0
+offset_top = -138.0
+offset_right = 44.0
+offset_bottom = 135.0
+text = "1"
+label_settings = SubResource("LabelSettings_ugcpd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Bubble_Pop"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble_Pop/Area2D"]
+scale = Vector2(18, 18)
+shape = SubResource("CircleShape2D_qitpu")
+
+[connection signal="input_event" from="Bubble_Pop/Area2D" to="Bubble_Pop" method="_on_area_2d_input_event"]
