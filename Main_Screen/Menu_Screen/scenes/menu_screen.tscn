@@ -1,0 +1,125 @@
+[gd_scene load_steps=12 format=3 uid="uid://csuhj8pxfpyp0"]
+
+[ext_resource type="Texture2D" uid="uid://ddsw8w4qeudoy" path="res://Main_Screen/Menu_Screen/assests/images/Background_Image.png" id="2_ywh4s"]
+[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://Main_Screen/Menu_Screen/assests/sounds/Button_Sound.mp3" id="3_7a4el"]
+[ext_resource type="Texture2D" uid="uid://rtw6u0e1tu7e" path="res://Main_Screen/Menu_Screen/assests/images/Play.png" id="3_sj757"]
+[ext_resource type="Script" uid="uid://bug2p7hf80dhh" path="res://Main_Screen/Menu_Screen/scripts/play_button.gd" id="4_sj757"]
+[ext_resource type="Texture2D" uid="uid://ii1b0e4fb03j" path="res://Main_Screen/Menu_Screen/assests/images/Levels.png" id="4_sjiej"]
+[ext_resource type="Script" uid="uid://cf84ahi3fu4p6" path="res://Main_Screen/Menu_Screen/scripts/levels_button.gd" id="5_4sv2p"]
+[ext_resource type="Texture2D" uid="uid://dq0mqv21a3e3m" path="res://Main_Screen/Menu_Screen/assests/images/Exit.png" id="5_sjiej"]
+[ext_resource type="Texture2D" uid="uid://dej81pm5dc8fr" path="res://Main_Screen/Menu_Screen/assests/images/Settings.png" id="6_sjiej"]
+[ext_resource type="Script" uid="uid://8uwxbvctfuti" path="res://Main_Screen/Menu_Screen/scripts/exit_button.gd" id="7_0osx7"]
+[ext_resource type="Script" uid="uid://ofu5gblr6gu0" path="res://Main_Screen/Menu_Screen/scripts/settings_button.gd" id="9_62wn8"]
+[ext_resource type="Texture2D" uid="uid://bivgpfhsab4m4" path="res://Main_Screen/Menu_Screen/assests/images/Background_Music.png" id="11_ups6l"]
+
+[node name="Main_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ywh4s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Play_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 185.0
+offset_right = 1640.0
+offset_bottom = 622.0
+texture_normal = ExtResource("3_sj757")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_sj757")
+
+[node name="Levels_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 730.0
+offset_right = 1438.0
+offset_bottom = 1039.0
+texture_normal = ExtResource("4_sjiej")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("5_4sv2p")
+
+[node name="Exit_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 830.0
+offset_right = 300.0
+offset_bottom = 1030.0
+texture_normal = ExtResource("5_sjiej")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("7_0osx7")
+
+[node name="Settings_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 830.0
+offset_right = 2300.0
+offset_bottom = 1030.0
+texture_normal = ExtResource("6_sjiej")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("9_62wn8")
+
+[node name="Extra_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1900.0
+offset_top = 830.0
+offset_right = 2100.0
+offset_bottom = 1030.0
+texture_normal = ExtResource("11_ups6l")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7a4el")
+volume_db = 20.0
+
+[node name="Background_Sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+autoplay = true
+
+[node name="Safe_Area" type="Node2D" parent="."]
+visible = false
+
+[node name="Left" type="ColorRect" parent="Safe_Area"]
+offset_right = 100.0
+offset_bottom = 1080.0
+
+[node name="Right" type="ColorRect" parent="Safe_Area"]
+offset_left = 2300.0
+offset_right = 2400.0
+offset_bottom = 1080.0
+
+[node name="Top" type="ColorRect" parent="Safe_Area"]
+offset_right = 2400.0
+offset_bottom = 50.0
+
+[node name="Bottom" type="ColorRect" parent="Safe_Area"]
+offset_top = 1030.0
+offset_right = 2400.0
+offset_bottom = 1080.0
+
+[connection signal="button_down" from="Play_Button" to="Play_Button" method="_on_button_down"]
+[connection signal="button_down" from="Levels_Button" to="Levels_Button" method="_on_button_down"]
+[connection signal="button_up" from="Levels_Button" to="Levels_Button" method="_on_button_up"]
+[connection signal="button_down" from="Exit_Button" to="Exit_Button" method="_on_button_down"]
+[connection signal="button_up" from="Exit_Button" to="Exit_Button" method="_on_button_up"]
+[connection signal="button_down" from="Settings_Button" to="Settings_Button" method="_on_button_down"]
+[connection signal="button_up" from="Settings_Button" to="Settings_Button" method="_on_button_up"]
+[connection signal="button_down" from="Extra_Button" to="Extra_Button" method="_on_button_down"]
+[connection signal="button_up" from="Extra_Button" to="Extra_Button" method="_on_button_up"]

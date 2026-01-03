@@ -24,6 +24,7 @@ func on_bubble_poped():
 	if progressbar.value >= 10:
 		$Retry_Button.show_with_fade()
 		$Next_Button.show_with_fade()
+		$ProgressBarLogo.modulate.a = 255
 		isWin = true
 		
 	await get_tree().create_timer(1).timeout

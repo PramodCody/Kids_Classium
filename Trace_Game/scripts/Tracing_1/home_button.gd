@@ -24,4 +24,4 @@ func _on_button_up() -> void:
 	.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	
 	await $"../Button_Sound".finished
-	get_tree().change_scene_to_file("res://Main_Screen/scenes/main_screen.tscn")
+	get_tree().change_scene_to_file("res://Main_Screen/Menu_Screen/scenes/menu_screen.tscn")
