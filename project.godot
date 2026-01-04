@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kids_Classium"
-run/main_scene="uid://csuhj8pxfpyp0"
+run/main_scene="uid://c6k5llsth1sl3"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="uid://c22w66hv64n0y"
 boot_splash/icon="uid://c22w66hv64n0y"
