@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://drbwua7fkpilt"]
+
+[ext_resource type="Texture2D" uid="uid://df8pxos5voees" path="res://04_Collect_Game/assests/images/Space_Background.jpg" id="1_1vluq"]
+[ext_resource type="Script" uid="uid://dmmnoc0e6br32" path="res://04_Collect_Game/scripts/parallax_background.gd" id="1_dw6ni"]
+[ext_resource type="Texture2D" uid="uid://cg878eas47x6" path="res://04_Collect_Game/assests/images/SpaceShip.png" id="2_dw6ni"]
+
+[node name="Collecting_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_dw6ni")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Space_Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(1200, 540)
+texture = ExtResource("1_1vluq")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpaceShip" type="Sprite2D" parent="."]
+position = Vector2(400, 540)
+texture = ExtResource("2_dw6ni")

@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Button_Sound.mp3" id="9_p3m5i"]
 [ext_resource type="Texture2D" uid="uid://b5d7cjry8tnyr" path="res://03_Pop_Game/assests/images/Progress_bar_logo.png" id="10_uryvf"]
 
-[node name="Control" type="Control"]
+[node name="Poping_1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
