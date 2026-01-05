@@ -72,5 +72,6 @@ stream = ExtResource("4_w0m1a")
 
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="button_down" from="Home_Button" to="Home_Button" method="_on_button_down"]
 [connection signal="button_up" from="Home_Button" to="Home_Button" method="_on_button_up"]
