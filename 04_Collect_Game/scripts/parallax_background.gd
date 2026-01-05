@@ -1,4 +1,4 @@
 extends ParallaxBackground
 
 func _process(delta: float) -> void:
-	scroll_offset.x -= 1
+	scroll_offset.x -= 5
