@@ -28,38 +28,53 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 573.0
-offset_top = 487.0
-offset_right = 848.0
-offset_bottom = 605.0
+offset_left = 196.0
+offset_top = 493.0
+offset_right = 471.0
+offset_bottom = 611.0
 theme_override_font_sizes/font_size = 80
 text = "Level 1
 "
 
 [node name="Button2" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 484.0
-offset_right = 1352.0
-offset_bottom = 602.0
+offset_left = 631.0
+offset_top = 497.0
+offset_right = 906.0
+offset_bottom = 615.0
 theme_override_font_sizes/font_size = 80
 text = "Level 2
 "
 
 [node name="Button3" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1619.0
-offset_top = 487.0
-offset_right = 1894.0
-offset_bottom = 605.0
+offset_left = 1092.0
+offset_top = 496.0
+offset_right = 1367.0
+offset_bottom = 614.0
 theme_override_font_sizes/font_size = 80
 text = "Level 3
 "
 
 [node name="Button4" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 1521.0
+offset_top = 499.0
+offset_right = 1796.0
+offset_bottom = 617.0
+theme_override_font_sizes/font_size = 80
+text = "Level 4
+"
+
+[node name="Button5" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1929.0
+offset_top = 481.0
+offset_right = 2204.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 80
+text = "Level 5
+"
 
 [node name="Home_Button" type="TextureButton" parent="."]
 layout_mode = 0
@@ -79,5 +94,6 @@ stream = ExtResource("4_w0m1a")
 [connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="TextureRect/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="TextureRect/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="button_down" from="Home_Button" to="Home_Button" method="_on_button_down"]
 [connection signal="button_up" from="Home_Button" to="Home_Button" method="_on_button_up"]

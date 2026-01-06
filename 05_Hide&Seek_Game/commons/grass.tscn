@@ -5,17 +5,18 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmns8"]
 radius = 109.27669
-height = 389.97113
+height = 427.00903
 
 [node name="Grass" type="Sprite2D"]
 z_index = 5
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_byj4x")
 script = ExtResource("2_kmns8")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-40, 14)
+position = Vector2(-10, 30)
 rotation = -1.5446264
 shape = SubResource("CapsuleShape2D_kmns8")
 

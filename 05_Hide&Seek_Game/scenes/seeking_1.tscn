@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhpsb5e33pggw"]
+[gd_scene load_steps=12 format=3 uid="uid://bhpsb5e33pggw"]
 
 [ext_resource type="Script" uid="uid://bxtg8egpb7pqb" path="res://05_Hide&Seek_Game/scripts/seeking_1.gd" id="1_ksk0w"]
-[ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://02_Trace_Game/assests/images/Background.png" id="1_mqnkp"]
+[ext_resource type="Texture2D" uid="uid://bicm4nvhf8rcg" path="res://05_Hide&Seek_Game/assests/images/20781.jpg" id="2_ana5r"]
 [ext_resource type="Texture2D" uid="uid://ddl1lxmss11g7" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Retry_Button.png" id="3_ana5r"]
 [ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://00_Global_Commons/scripts/retry_button.gd" id="4_h1c1d"]
 [ext_resource type="Texture2D" uid="uid://cdpda6p7rl51a" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Next_Button.png" id="5_2flro"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://do451oqvtmxxh" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="7_eslqd"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="8_qhmho"]
 [ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Button_Sound.mp3" id="9_po64x"]
+[ext_resource type="Script" uid="uid://3h1vxoblelx5" path="res://05_Hide&Seek_Game/commons/camera_2d.gd" id="10_h1c1d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ana5r"]
 font_size = 100
@@ -27,32 +28,29 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.0029166667
+anchor_top = -0.2824074
+anchor_right = 2.5654166
+anchor_bottom = 0.98703706
+offset_left = 7.0
+offset_right = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_mqnkp")
+texture = ExtResource("2_ana5r")
+expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -509.0
-offset_top = -32.5
-offset_right = 509.0
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 3.0
-show_percentage = false
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1200, 540)
+limit_smoothed = true
+drag_horizontal_enabled = true
+script = ExtResource("10_h1c1d")
 
-[node name="Level_Control" type="Control" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Level_Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,7 +60,7 @@ mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
-[node name="Retry_Button" type="TextureButton" parent="Level_Control"]
+[node name="Retry_Button" type="TextureButton" parent="CanvasLayer/Level_Control"]
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
 offset_left = 1900.0
@@ -75,7 +73,7 @@ stretch_mode = 4
 script = ExtResource("4_h1c1d")
 Target_Scene = "res://05_Hide&Seek_Game/scenes/seeking_1.tscn"
 
-[node name="Next_Button" type="TextureButton" parent="Level_Control"]
+[node name="Next_Button" type="TextureButton" parent="CanvasLayer/Level_Control"]
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
 offset_left = 2100.0
@@ -87,7 +85,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_2xw1o")
 
-[node name="Home_Button" type="TextureButton" parent="Level_Control"]
+[node name="Home_Button" type="TextureButton" parent="CanvasLayer/Level_Control"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 50.0
@@ -98,10 +96,10 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("8_qhmho")
 
-[node name="Button_Sound" type="AudioStreamPlayer2D" parent="Level_Control"]
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="CanvasLayer/Level_Control"]
 stream = ExtResource("9_po64x")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Level_Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -115,7 +113,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Label" type="Label" parent="CanvasLayer/Level_Control/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,9 +129,25 @@ grow_vertical = 2
 text = "1"
 label_settings = SubResource("LabelSettings_ana5r")
 
-[connection signal="button_down" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_up"]
-[connection signal="button_down" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_up"]
-[connection signal="button_down" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_up"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Level_Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -32.5
+offset_right = 509.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 5.0
+show_percentage = false
+
+[connection signal="button_down" from="CanvasLayer/Level_Control/Retry_Button" to="CanvasLayer/Level_Control/Retry_Button" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/Level_Control/Retry_Button" to="CanvasLayer/Level_Control/Retry_Button" method="_on_button_up"]
+[connection signal="button_down" from="CanvasLayer/Level_Control/Next_Button" to="CanvasLayer/Level_Control/Next_Button" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/Level_Control/Next_Button" to="CanvasLayer/Level_Control/Next_Button" method="_on_button_up"]
+[connection signal="button_down" from="CanvasLayer/Level_Control/Home_Button" to="CanvasLayer/Level_Control/Home_Button" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/Level_Control/Home_Button" to="CanvasLayer/Level_Control/Home_Button" method="_on_button_up"]
