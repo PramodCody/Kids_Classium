@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6426ca83uwlw"]
+
+[ext_resource type="Texture2D" uid="uid://ct0vhbq7cepw8" path="res://05_Hide&Seek_Game/assests/images/Grass.png" id="1_byj4x"]
+[ext_resource type="Script" uid="uid://d3fopbrwsf6kd" path="res://05_Hide&Seek_Game/commons/grass.gd" id="2_kmns8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmns8"]
+radius = 109.27669
+height = 389.97113
+
+[node name="Grass" type="Sprite2D"]
+z_index = 5
+texture = ExtResource("1_byj4x")
+script = ExtResource("2_kmns8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-40, 14)
+rotation = -1.5446264
+shape = SubResource("CapsuleShape2D_kmns8")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

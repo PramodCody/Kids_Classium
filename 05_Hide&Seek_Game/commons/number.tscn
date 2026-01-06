@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf6nku8sljt8a"]
+
+[ext_resource type="Script" uid="uid://4ht48y40in0a" path="res://05_Hide&Seek_Game/commons/number.gd" id="1_aqpak"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gkmgj"]
+font_size = 200
+font_color = Color(1, 0.047058824, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqpak"]
+size = Vector2(147, 263)
+
+[node name="Number" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+label_settings = SubResource("LabelSettings_gkmgj")
+script = ExtResource("1_aqpak")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(62.5, 138.5)
+shape = SubResource("RectangleShape2D_aqpak")
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="Area2D/Timer" to="." method="_on_timer_timeout"]
