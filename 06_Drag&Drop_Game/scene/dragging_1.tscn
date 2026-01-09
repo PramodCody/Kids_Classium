@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://b54nenep6i1vx"]
+
+[ext_resource type="Texture2D" uid="uid://dq7d0ahqf5vk7" path="res://06_Drag&Drop_Game/assests/images/dragdrop_bg.jpg" id="1_8rxyd"]
+[ext_resource type="Script" uid="uid://cipgmyt0pnyi2" path="res://06_Drag&Drop_Game/scripts/dragging_1.gd" id="1_arlxh"]
+[ext_resource type="Texture2D" uid="uid://dn28vrk6t3p05" path="res://06_Drag&Drop_Game/assests/images/circle.png" id="3_edims"]
+[ext_resource type="Texture2D" uid="uid://ddl1lxmss11g7" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Retry_Button.png" id="4_nrtjl"]
+[ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://00_Global_Commons/scripts/retry_button.gd" id="5_xv4jm"]
+[ext_resource type="Texture2D" uid="uid://cdpda6p7rl51a" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Next_Button.png" id="6_jjdvn"]
+[ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://00_Global_Commons/scripts/next_button.gd" id="7_ut6x4"]
+[ext_resource type="Texture2D" uid="uid://do451oqvtmxxh" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="8_6iast"]
+[ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="9_5kpxv"]
+[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Button_Sound.mp3" id="10_hgkph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_edims"]
+radius = 60.827625
+
+[node name="Dragging_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_arlxh")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8rxyd")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Mission_Circle" type="Sprite2D" parent="."]
+position = Vector2(1200, 540)
+texture = ExtResource("3_edims")
+
+[node name="Mission_Area" type="Area2D" parent="Mission_Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mission_Circle/Mission_Area"]
+shape = SubResource("CircleShape2D_edims")
+
+[node name="Level_Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="Retry_Button" type="TextureButton" parent="Level_Control"]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 1900.0
+offset_top = 830.0
+offset_right = 2100.0
+offset_bottom = 1030.0
+texture_normal = ExtResource("4_nrtjl")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("5_xv4jm")
+Target_Scene = "res://06_Drag&Drop_Game/scene/dragging_1.tscn"
+
+[node name="Next_Button" type="TextureButton" parent="Level_Control"]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 830.0
+offset_right = 2300.0
+offset_bottom = 1030.0
+texture_normal = ExtResource("6_jjdvn")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("7_ut6x4")
+
+[node name="Home_Button" type="TextureButton" parent="Level_Control"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 280.0
+offset_bottom = 230.0
+texture_normal = ExtResource("8_6iast")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("9_5kpxv")
+
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="Level_Control"]
+stream = ExtResource("10_hgkph")
+
+[node name="Forbidden_Rectangle" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.3529412)
+layout_mode = 0
+offset_left = 66.0
+offset_top = 20.0
+offset_right = 316.0
+offset_bottom = 270.0
+
+[connection signal="button_down" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_down"]
+[connection signal="button_up" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_up"]
+[connection signal="button_down" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_down"]
+[connection signal="button_up" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_up"]
+[connection signal="button_down" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_down"]
+[connection signal="button_up" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_up"]

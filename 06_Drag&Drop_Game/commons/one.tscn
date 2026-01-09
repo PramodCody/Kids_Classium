@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dklj5mj25jrg7"]
+
+[ext_resource type="Texture2D" uid="uid://sdpcqwaw4ps1" path="res://06_Drag&Drop_Game/assests/images/one.png" id="1_kt3ld"]
+[ext_resource type="Script" uid="uid://dflkwvjkypour" path="res://06_Drag&Drop_Game/commons/one.gd" id="2_55cvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55cvh"]
+size = Vector2(109, 185)
+
+[node name="One" type="Sprite2D"]
+texture = ExtResource("1_kt3ld")
+script = ExtResource("2_55cvh")
+Number = 1
+Mission_Position = Vector2(1200, 540)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.5, 6.5)
+shape = SubResource("RectangleShape2D_55cvh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

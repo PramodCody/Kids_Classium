@@ -18,4 +18,4 @@ func _on_button_4_pressed() -> void:
 
 
 func _on_button_5_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://06_Drag&Drop_Game/scene/dragging_1.tscn")
