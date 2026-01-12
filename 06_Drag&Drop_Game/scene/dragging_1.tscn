@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dq7d0ahqf5vk7" path="res://06_Drag&Drop_Game/assests/images/dragdrop_bg.jpg" id="1_8rxyd"]
 [ext_resource type="Script" uid="uid://cipgmyt0pnyi2" path="res://06_Drag&Drop_Game/scripts/dragging_1.gd" id="1_arlxh"]
 [ext_resource type="Texture2D" uid="uid://dn28vrk6t3p05" path="res://06_Drag&Drop_Game/assests/images/circle.png" id="3_edims"]
-[ext_resource type="Texture2D" uid="uid://ddl1lxmss11g7" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Retry_Button.png" id="4_nrtjl"]
+[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Retry_Button.png" id="4_nrtjl"]
 [ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://00_Global_Commons/scripts/retry_button.gd" id="5_xv4jm"]
-[ext_resource type="Texture2D" uid="uid://cdpda6p7rl51a" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Next_Button.png" id="6_jjdvn"]
+[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Next_Button.png" id="6_jjdvn"]
 [ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://00_Global_Commons/scripts/next_button.gd" id="7_ut6x4"]
-[ext_resource type="Texture2D" uid="uid://do451oqvtmxxh" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="8_6iast"]
+[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="8_6iast"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="9_5kpxv"]
-[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Button_Sound.mp3" id="10_hgkph"]
+[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="10_hgkph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edims"]
 radius = 60.827625

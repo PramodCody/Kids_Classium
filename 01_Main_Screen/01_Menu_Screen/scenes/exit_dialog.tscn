@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://4a5pn771bmd4"]
+
+[ext_resource type="Script" uid="uid://bgbj0crpu3ndv" path="res://01_Main_Screen/01_Menu_Screen/scripts/exit_dialog.gd" id="1_271ni"]
+[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="2_qf8i8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_271ni"]
+bg_color = Color(0.84313726, 0.7254902, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 100
+
+[sub_resource type="FontVariation" id="FontVariation_271ni"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3cqh"]
+font = SubResource("FontVariation_271ni")
+font_size = 70
+font_color = Color(0.101960786, 0.12156863, 0.23529412, 1)
+shadow_size = 5
+shadow_color = Color(1, 0.30980393, 0.84705883, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_271ni"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf8i8"]
+bg_color = Color(0.60784316, 0.34901962, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.96862745)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3cqh"]
+bg_color = Color(0.60784316, 0.34901962, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.96862745)
+
+[node name="Exit_Dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_271ni")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 1900.0
+offset_bottom = 1000.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_271ni")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 84.0
+offset_right = 1211.0
+offset_bottom = 180.0
+text = "Are you sure you want to exit?"
+label_settings = SubResource("LabelSettings_h3cqh")
+
+[node name="Yes_Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 280.0
+offset_right = 550.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.7176471, 0.64705884, 1)
+theme_override_fonts/font = SubResource("SystemFont_271ni")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_qf8i8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h3cqh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h3cqh")
+text = "Yes
+"
+
+[node name="No_Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 280.0
+offset_right = 1150.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.7176471, 0.64705884, 1)
+theme_override_fonts/font = SubResource("SystemFont_271ni")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_qf8i8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h3cqh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h3cqh")
+text = "No
+"
+
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qf8i8")
+volume_db = 10.0
+
+[connection signal="button_down" from="Panel/Yes_Button" to="." method="_on_yes_button_button_down"]
+[connection signal="button_down" from="Panel/No_Button" to="." method="_on_no_button_button_down"]

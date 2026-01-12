@@ -1,4 +1,5 @@
 extends TextureButton
+@onready var Button_Sound = $"../../Button_Sound"
 
 var isElastic : bool
 var isPressed : bool
@@ -30,12 +31,12 @@ var animation_speed = 0.2
 
 func _on_button_down() -> void:
 	isPressed = true
-	$"../Button_Sound".play()
+	Button_Sound.play()
 	
 	pivot_offset = size/2
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE * (1.0 - scale_strength), animation_speed)\
 	.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
-	await $"../Button_Sound".finished
+	await Button_Sound.finished
 	get_tree().change_scene_to_file("res://02_Trace_Game/scenes/Tracing_1.tscn")

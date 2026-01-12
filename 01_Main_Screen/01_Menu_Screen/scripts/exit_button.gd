@@ -1,26 +1,38 @@
 extends TextureButton
+@onready var Button_Sound = $"../../Button_Sound"
+@onready var Menu_Screen = $".."
+@onready var Canvas_Layer = $"../../CanvasLayer"
+@onready var Exit_Dialog_Layer = $"../../CanvasLayer/Exit_Dialog"
+
+
+func Tween_Background_Out_Focus():
+	var tween = create_tween()
+	tween.tween_property(Menu_Screen, "modulate", Color(0.1, 0.1, 0.1, 1), 0.5)
+func Exit_Dialog_In():
+	Canvas_Layer.visible = true
+	Exit_Dialog_Layer.modulate.a = 0
+	var tween = create_tween()
+	tween.tween_property(Exit_Dialog_Layer, "modulate:a", 1.0, 0.8)
+	tween.set_trans(Tween.TRANS_SINE)
+
+
 
 var scale_strength = 0.1
 var animation_speed = 0.1
-
 func _on_button_down() -> void:
-	$"../Button_Sound".play()
-	
+	Button_Sound.play()
 	pivot_offset = size/2
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE * (1.0 - scale_strength), animation_speed)\
 	.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
-	await $"../Button_Sound".finished
-	
-	
+	await Button_Sound.finished
 func _on_button_up() -> void:
-	$"../Button_Sound".play()
-	
+	Button_Sound.play()
 	pivot_offset = size/2
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, animation_speed * 4)\
 	.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	await Button_Sound.finished
 	
-	await $"../Button_Sound".finished
-	get_tree().quit()
+	Tween_Background_Out_Focus()
+	Exit_Dialog_In()

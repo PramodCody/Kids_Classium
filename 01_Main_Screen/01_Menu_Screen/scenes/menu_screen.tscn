@@ -1,25 +1,42 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6k5llsth1sl3"]
+[gd_scene load_steps=17 format=3 uid="uid://c6k5llsth1sl3"]
 
+[ext_resource type="Script" uid="uid://2k6s13aarpm8" path="res://01_Main_Screen/01_Menu_Screen/scripts/menu_screen.gd" id="1_edb7x"]
 [ext_resource type="Texture2D" uid="uid://ddsw8w4qeudoy" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Background_Image.png" id="2_ywh4s"]
-[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Button_Sound.mp3" id="3_7a4el"]
+[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="3_7a4el"]
 [ext_resource type="Texture2D" uid="uid://rtw6u0e1tu7e" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Play.png" id="3_sj757"]
 [ext_resource type="Script" uid="uid://bug2p7hf80dhh" path="res://01_Main_Screen/01_Menu_Screen/scripts/play_button.gd" id="4_sj757"]
 [ext_resource type="Texture2D" uid="uid://ii1b0e4fb03j" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Levels.png" id="4_sjiej"]
 [ext_resource type="Script" uid="uid://cf84ahi3fu4p6" path="res://01_Main_Screen/01_Menu_Screen/scripts/levels_button.gd" id="5_4sv2p"]
-[ext_resource type="Texture2D" uid="uid://dq0mqv21a3e3m" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Exit.png" id="5_sjiej"]
-[ext_resource type="Texture2D" uid="uid://dej81pm5dc8fr" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Settings.png" id="6_sjiej"]
+[ext_resource type="Texture2D" uid="uid://c5l33mw5ttg6u" path="res://00_Global_Commons/assests/General_Button.png" id="6_7unc2"]
 [ext_resource type="Script" uid="uid://8uwxbvctfuti" path="res://01_Main_Screen/01_Menu_Screen/scripts/exit_button.gd" id="7_0osx7"]
 [ext_resource type="Script" uid="uid://ofu5gblr6gu0" path="res://01_Main_Screen/01_Menu_Screen/scripts/settings_button.gd" id="9_62wn8"]
 [ext_resource type="Script" uid="uid://4o14sveq8n34" path="res://01_Main_Screen/01_Menu_Screen/scripts/extra_button.gd" id="11_44rig"]
-[ext_resource type="Texture2D" uid="uid://bivgpfhsab4m4" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Background_Music.png" id="11_ups6l"]
+[ext_resource type="PackedScene" uid="uid://4a5pn771bmd4" path="res://01_Main_Screen/01_Menu_Screen/scenes/exit_dialog.tscn" id="12_44rig"]
 
-[node name="Main_Screen" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_44rig"]
+atlas = ExtResource("6_7unc2")
+region = Rect2(33, 1535, 432, 431)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edb7x"]
+atlas = ExtResource("6_7unc2")
+region = Rect2(536, 37, 431, 431)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybj5g"]
+atlas = ExtResource("6_7unc2")
+region = Rect2(1034, 538, 431, 431)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcr4d"]
+atlas = ExtResource("6_7unc2")
+region = Rect2(535, 538, 432, 436)
+
+[node name="Menu_Screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_edb7x")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -32,7 +49,18 @@ grow_vertical = 2
 texture = ExtResource("2_ywh4s")
 metadata/_edit_use_anchors_ = true
 
-[node name="Play_Button" type="TextureButton" parent="."]
+[node name="Settings_Button" type="TextureButton" parent="TextureRect"]
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 830.0
+offset_right = 2300.0
+offset_bottom = 1030.0
+texture_normal = SubResource("AtlasTexture_44rig")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("9_62wn8")
+
+[node name="Play_Button" type="TextureButton" parent="TextureRect"]
 layout_mode = 0
 offset_left = 854.0
 offset_top = 185.0
@@ -43,7 +71,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_sj757")
 
-[node name="Levels_Button" type="TextureButton" parent="."]
+[node name="Levels_Button" type="TextureButton" parent="TextureRect"]
 layout_mode = 0
 offset_left = 1100.0
 offset_top = 730.0
@@ -54,35 +82,25 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("5_4sv2p")
 
-[node name="Exit_Button" type="TextureButton" parent="."]
+[node name="Exit_Button" type="TextureButton" parent="TextureRect"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 830.0
 offset_right = 300.0
 offset_bottom = 1030.0
-texture_normal = ExtResource("5_sjiej")
+texture_normal = SubResource("AtlasTexture_edb7x")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("7_0osx7")
 
-[node name="Settings_Button" type="TextureButton" parent="."]
+[node name="Extra_Button" type="TextureButton" parent="TextureRect"]
 layout_mode = 0
-offset_left = 2100.0
+offset_left = 1880.0
 offset_top = 830.0
-offset_right = 2300.0
+offset_right = 2080.0
 offset_bottom = 1030.0
-texture_normal = ExtResource("6_sjiej")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("9_62wn8")
-
-[node name="Extra_Button" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 1900.0
-offset_top = 830.0
-offset_right = 2100.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("11_ups6l")
+texture_normal = SubResource("AtlasTexture_ybj5g")
+texture_pressed = SubResource("AtlasTexture_qcr4d")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_44rig")
@@ -95,12 +113,17 @@ volume_db = 10.0
 volume_db = 10.0
 autoplay = true
 
-[connection signal="button_down" from="Play_Button" to="Play_Button" method="_on_button_down"]
-[connection signal="button_down" from="Levels_Button" to="Levels_Button" method="_on_button_down"]
-[connection signal="button_up" from="Levels_Button" to="Levels_Button" method="_on_button_up"]
-[connection signal="button_down" from="Exit_Button" to="Exit_Button" method="_on_button_down"]
-[connection signal="button_up" from="Exit_Button" to="Exit_Button" method="_on_button_up"]
-[connection signal="button_down" from="Settings_Button" to="Settings_Button" method="_on_button_down"]
-[connection signal="button_up" from="Settings_Button" to="Settings_Button" method="_on_button_up"]
-[connection signal="button_down" from="Extra_Button" to="Extra_Button" method="_on_button_down"]
-[connection signal="button_up" from="Extra_Button" to="Extra_Button" method="_on_button_up"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Exit_Dialog" parent="CanvasLayer" instance=ExtResource("12_44rig")]
+
+[connection signal="button_down" from="TextureRect/Settings_Button" to="TextureRect/Settings_Button" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/Settings_Button" to="TextureRect/Settings_Button" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/Play_Button" to="TextureRect/Play_Button" method="_on_button_down"]
+[connection signal="button_down" from="TextureRect/Levels_Button" to="TextureRect/Levels_Button" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/Levels_Button" to="TextureRect/Levels_Button" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/Exit_Button" to="TextureRect/Exit_Button" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/Exit_Button" to="TextureRect/Exit_Button" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/Extra_Button" to="TextureRect/Extra_Button" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/Extra_Button" to="TextureRect/Extra_Button" method="_on_button_up"]

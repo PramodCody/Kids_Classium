@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://02_Trace_Game/assests/images/Background.png" id="1_fvukt"]
 [ext_resource type="Script" uid="uid://b4uno4oljglq5" path="res://01_Main_Screen/02_Levels_Collection/scripts/levels_collection.gd" id="1_jjlug"]
-[ext_resource type="Texture2D" uid="uid://do451oqvtmxxh" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="2_yh1f0"]
+[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="2_yh1f0"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="3_inpeq"]
-[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Button_Sound.mp3" id="4_w0m1a"]
+[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="4_w0m1a"]
 
 [node name="Levels_Collection" type="Control"]
 layout_mode = 3
