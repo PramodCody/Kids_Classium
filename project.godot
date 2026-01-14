@@ -21,7 +21,8 @@ boot_splash/icon="uid://c22w66hv64n0y"
 
 window/size/viewport_width=2400
 window/size/viewport_height=1080
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

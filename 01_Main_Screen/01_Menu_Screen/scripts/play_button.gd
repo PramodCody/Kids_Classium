@@ -23,8 +23,9 @@ func Elastic_Play_Button():
 
 
 func _ready() -> void:
-	pivot_offset = size/2
-	Elastic_Play_Button()
+	#pivot_offset = size/2
+	#Elastic_Play_Button()
+	pass
 
 var scale_strength = 0.2
 var animation_speed = 0.2

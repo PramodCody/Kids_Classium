@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5l33mw5ttg6u"
-path="res://.godot/imported/General_Button.png-108b6b4ebcafd4d21cac576324eb8708.ctex"
+uid="uid://cvxnovl846ury"
+path="res://.godot/imported/General_Button.webp-2d49fc0d482e86c0ff441a6d6a1ef12b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://00_Global_Commons/assests/General_Button.png"
-dest_files=["res://.godot/imported/General_Button.png-108b6b4ebcafd4d21cac576324eb8708.ctex"]
+source_file="res://00_Global_Commons/assests/General_Button.webp"
+dest_files=["res://.godot/imported/General_Button.webp-2d49fc0d482e86c0ff441a6d6a1ef12b.ctex"]
 
 [params]
 
