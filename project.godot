@@ -17,12 +17,20 @@ config/features=PackedStringArray("4.5", "Mobile")
 config/icon="uid://c22w66hv64n0y"
 boot_splash/icon="uid://c22w66hv64n0y"
 
+[autoload]
+
+AudioManager="*res://00_Global_Commons/scenes/audio_manager.tscn"
+
 [display]
 
 window/size/viewport_width=2400
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+texture_buttons=""
 
 [input]
 

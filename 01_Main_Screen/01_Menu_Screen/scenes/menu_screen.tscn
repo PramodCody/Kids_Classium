@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6k5llsth1sl3"]
+[gd_scene load_steps=16 format=3 uid="uid://c6k5llsth1sl3"]
 
 [ext_resource type="Script" uid="uid://2k6s13aarpm8" path="res://01_Main_Screen/01_Menu_Screen/scripts/menu_screen.gd" id="1_edb7x"]
 [ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://02_Trace_Game/assests/images/Background.png" id="2_44rig"]
-[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="3_7a4el"]
 [ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="3_44rig"]
 [ext_resource type="Texture2D" uid="uid://rtw6u0e1tu7e" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Play.png" id="3_sj757"]
 [ext_resource type="Script" uid="uid://bug2p7hf80dhh" path="res://01_Main_Screen/01_Menu_Screen/scripts/play_button.gd" id="4_sj757"]
@@ -49,7 +48,7 @@ grow_vertical = 2
 texture = ExtResource("2_44rig")
 metadata/_edit_use_anchors_ = true
 
-[node name="Play_Button" type="TextureButton" parent="TextureRect"]
+[node name="Play_Button" type="TextureButton" parent="TextureRect" groups=["texture_buttons"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -105,7 +104,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Exit_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/First_Container"]
+[node name="Exit_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/First_Container" groups=["texture_buttons"]]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -122,7 +121,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Levels_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Levels_Container"]
+[node name="Levels_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Levels_Container" groups=["texture_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.65
@@ -152,7 +151,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Extra_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer"]
+[node name="Extra_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer" groups=["texture_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
@@ -162,7 +161,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_44rig")
 
-[node name="Settings_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer"]
+[node name="Settings_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer" groups=["texture_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
@@ -171,14 +170,12 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("9_62wn8")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Dialog_Group" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 
-[node name="Exit_Dialog" parent="CanvasLayer" instance=ExtResource("12_44rig")]
-
-[node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_7a4el")
-volume_db = 10.0
+[node name="Exit_Dialog" parent="Dialog_Group" instance=ExtResource("12_44rig")]
+unique_name_in_owner = true
 
 [node name="Background_Sound" type="AudioStreamPlayer2D" parent="."]
 volume_db = 10.0
