@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4l0td7o5juxt"]
+[gd_scene load_steps=6 format=3 uid="uid://d4l0td7o5juxt"]
 
-[ext_resource type="Script" uid="uid://dn6og6a147jha" path="res://01_Main_Screen/03_Settings/scripts/buttons_group.gd" id="1_wveag"]
+[ext_resource type="Script" uid="uid://cmiftdea45xxy" path="res://01_Main_Screen/03_Settings/scripts/buttons_group.gd" id="1_wveag"]
+[ext_resource type="PackedScene" uid="uid://cbd17hidrcmt6" path="res://01_Main_Screen/03_Settings/scenes/about_dialog.tscn" id="2_dcewm"]
+[ext_resource type="PackedScene" uid="uid://d2h3uct2jgcg4" path="res://check.tscn" id="3_dytvf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nxxn0"]
-font_size = 100
+font_size = 90
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wveag"]
-bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dytvf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Settings_Dialog" type="Control"]
 layout_mode = 3
@@ -17,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Screen_Design" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,116 +28,105 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Screen_Design"]
+[node name="Top" type="ColorRect" parent="Background"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.05
 anchor_right = 1.0
 anchor_bottom = 0.2
-grow_horizontal = 2
-color = Color(1, 0.078431375, 0.078431375, 1)
+color = Color(0.09086964, 0.57168466, 0.5809971, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Title" type="Panel" parent="Background/Top"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 50
+anchor_left = 0.4
+anchor_top = 0.3
+anchor_right = 0.6
+anchor_bottom = 0.9
 metadata/_edit_use_anchors_ = true
 
-[node name="Full_Vbox" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Full_Vbox"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
-
-[node name="Label" type="Label" parent="MarginContainer/Full_Vbox/CenterContainer"]
-layout_mode = 2
-text = "Settings"
-label_settings = SubResource("LabelSettings_nxxn0")
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Full_Vbox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Buttons_Group" type="VBoxContainer" parent="MarginContainer/Full_Vbox/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-
-[node name="Control2" type="Control" parent="MarginContainer/Full_Vbox/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.01
-
-[node name="Lines_Group" type="HBoxContainer" parent="MarginContainer/Full_Vbox/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.04
-theme_override_constants/separation = 10
-
-[node name="Line1" type="ColorRect" parent="MarginContainer/Full_Vbox/HBoxContainer/Lines_Group"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0.7368996, 0.40014732, 0.8151321, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Line2" type="ColorRect" parent="MarginContainer/Full_Vbox/HBoxContainer/Lines_Group"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0.7368996, 0.40014732, 0.8151321, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Control" type="Control" parent="MarginContainer/Full_Vbox/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.01
-
-[node name="Action_Box" type="MarginContainer" parent="MarginContainer/Full_Vbox/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_top = 20
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Full_Vbox/HBoxContainer/Action_Box"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_wveag")
-
-[node name="Buttons_Group" type="Control" parent="."]
+[node name="Label" type="Label" parent="Background/Top/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_nxxn0")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Full_Vbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Full_Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="Bottom" type="MarginContainer" parent="Full_Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Full_Vbox/Bottom"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Buttons_Group" type="VBoxContainer" parent="Full_Vbox/Bottom/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+theme_override_constants/separation = 20
 script = ExtResource("1_wveag")
-metadata/_edit_use_anchors_ = true
 
-[node name="About" type="Button" parent="Buttons_Group"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.01125
-anchor_top = 0.27037036
-anchor_right = 0.24125
-anchor_bottom = 0.37962964
-theme_override_font_sizes/font_size = 80
+[node name="About" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/Buttons_Group"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+toggle_mode = true
 text = "About"
-metadata/_edit_use_anchors_ = true
 
-[node name="Sound" type="Button" parent="Buttons_Group"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.010833333
-anchor_top = 0.42592594
-anchor_right = 0.24083333
-anchor_bottom = 0.53518516
-theme_override_font_sizes/font_size = 80
+[node name="Sound" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/Buttons_Group"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
 text = "Sound"
-metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/Buttons_Group"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Full_Vbox/Bottom/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Action_Box" type="PanelContainer" parent="Full_Vbox/Bottom/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dytvf")
+
+[node name="About_Dialog" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("2_dcewm")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="check" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("3_dytvf")]
+visible = false
+layout_mode = 2
+color = Color(0.5821137, 0.69750315, 0.28029096, 1)
+
+[connection signal="pressed" from="Full_Vbox/Bottom/HBoxContainer/Buttons_Group/About" to="Full_Vbox/Bottom/HBoxContainer/Buttons_Group" method="_on_about_pressed"]
+[connection signal="pressed" from="Full_Vbox/Bottom/HBoxContainer/Buttons_Group/Sound" to="Full_Vbox/Bottom/HBoxContainer/Buttons_Group" method="_on_sound_pressed"]
