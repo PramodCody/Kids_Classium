@@ -20,6 +20,7 @@ boot_splash/icon="uid://c22w66hv64n0y"
 [autoload]
 
 AudioManager="*res://00_Global_Commons/scenes/audio_manager.tscn"
+FadeAnimation="*res://00_Global_Commons/scenes/fade_animation.tscn"
 
 [display]
 

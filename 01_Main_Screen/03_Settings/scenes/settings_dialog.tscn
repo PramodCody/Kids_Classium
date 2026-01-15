@@ -1,11 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4l0td7o5juxt"]
+[gd_scene load_steps=12 format=3 uid="uid://d4l0td7o5juxt"]
 
 [ext_resource type="Script" uid="uid://cmiftdea45xxy" path="res://01_Main_Screen/03_Settings/scripts/buttons_group.gd" id="1_wveag"]
+[ext_resource type="FontFile" uid="uid://okcq0l6xrgqh" path="res://01_Main_Screen/03_Settings/assests/Title_Font.otf" id="1_ypvht"]
 [ext_resource type="PackedScene" uid="uid://cbd17hidrcmt6" path="res://01_Main_Screen/03_Settings/scenes/about_dialog.tscn" id="2_dcewm"]
 [ext_resource type="PackedScene" uid="uid://d2h3uct2jgcg4" path="res://check.tscn" id="3_dytvf"]
+[ext_resource type="FontFile" uid="uid://3wdruuibrgf1" path="res://01_Main_Screen/03_Settings/assests/Button_Font.otf" id="3_r1634"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1634"]
+bg_color = Color(0.9395096, 0.30768842, 0.30241117, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+shadow_color = Color(0.36277273, 0.98984283, 0.72734237, 0.6)
+shadow_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_nxxn0"]
-font_size = 90
+font = ExtResource("1_ypvht")
+font_size = 130
+font_color = Color(0.20604464, 0.71396583, 0.8941005, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0.5882353, 0, 0.94509804)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tvld"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgpvf"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_r1634"]
+allow_unpress = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dytvf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -26,6 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.8185868, 0.43177572, 0.55112237, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Top" type="ColorRect" parent="Background"]
@@ -39,10 +76,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Title" type="Panel" parent="Background/Top"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.3
 anchor_top = 0.3
-anchor_right = 0.6
-anchor_bottom = 0.9
+anchor_right = 0.7
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1634")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Background/Top/Title"]
@@ -55,7 +93,7 @@ grow_vertical = 2
 text = "Settings"
 label_settings = SubResource("LabelSettings_nxxn0")
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Full_Vbox" type="VBoxContainer" parent="."]
@@ -84,29 +122,112 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Buttons_Group" type="VBoxContainer" parent="Full_Vbox/Bottom/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Full_Vbox/Bottom/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.35
+size_flags_stretch_ratio = 0.32
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_deadzone = -50
+
+[node name="MarginContainer" type="MarginContainer" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 300
+
+[node name="Buttons_Group" type="VBoxContainer" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 script = ExtResource("1_wveag")
 
-[node name="About" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/Buttons_Group"]
+[node name="About" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_r1634")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tvld")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rgpvf")
 toggle_mode = true
+button_group = SubResource("ButtonGroup_r1634")
 text = "About"
 
-[node name="Sound" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/Buttons_Group"]
+[node name="Donate" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_r1634")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tvld")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rgpvf")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_r1634")
+text = "Donate"
+
+[node name="Report_Card" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_r1634")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tvld")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rgpvf")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_r1634")
+text = "Report Card"
+
+[node name="Sound" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_r1634")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tvld")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rgpvf")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_r1634")
 text = "Sound"
 
-[node name="Button2" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/Buttons_Group"]
+[node name="Social_Media" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_r1634")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tvld")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rgpvf")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_r1634")
+text = "Social Media"
+
+[node name="Rate_Us" type="Button" parent="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_r1634")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tvld")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rgpvf")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_r1634")
+text = "Rate Us
+"
 
 [node name="Control" type="Control" parent="Full_Vbox/Bottom/HBoxContainer"]
 layout_mode = 2
@@ -128,5 +249,5 @@ visible = false
 layout_mode = 2
 color = Color(0.5821137, 0.69750315, 0.28029096, 1)
 
-[connection signal="pressed" from="Full_Vbox/Bottom/HBoxContainer/Buttons_Group/About" to="Full_Vbox/Bottom/HBoxContainer/Buttons_Group" method="_on_about_pressed"]
-[connection signal="pressed" from="Full_Vbox/Bottom/HBoxContainer/Buttons_Group/Sound" to="Full_Vbox/Bottom/HBoxContainer/Buttons_Group" method="_on_sound_pressed"]
+[connection signal="toggled" from="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group/About" to="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group" method="_on_about_toggled"]
+[connection signal="toggled" from="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group/Sound" to="Full_Vbox/Bottom/HBoxContainer/ScrollContainer/MarginContainer/Buttons_Group" method="_on_sound_toggled"]

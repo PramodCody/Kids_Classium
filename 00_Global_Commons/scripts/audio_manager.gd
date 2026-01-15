@@ -1,6 +1,6 @@
 extends Node
 
-@onready var Button_Sound_Scene = $Button_Sound
+@onready var Button_Sound_Scene = $Texture_Button_Sound
 var Texture_Button_Sound = preload("res://00_Global_Commons/assests/Button_Sound.mp3")
 
 func Play_Button_Sound(clip):

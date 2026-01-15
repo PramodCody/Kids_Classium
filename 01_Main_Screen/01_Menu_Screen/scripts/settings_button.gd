@@ -19,4 +19,4 @@ func _on_button_up() -> void:
 	tween.tween_property(self, "scale", Vector2.ONE, animation_speed * 4)\
 	.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	
-	print("Next Scene")
+	FadeAnimation.change_scene("res://01_Main_Screen/03_Settings/scenes/settings_dialog.tscn")

@@ -1,7 +1,7 @@
 extends Control
 @onready var Menu_Screen = $TextureRect
-@onready var Canvas_Layer = $CanvasLayer
-@onready var Exit_Dialog_Layer = $CanvasLayer/Exit_Dialog
+@onready var Canvas_Layer = %Dialog_Group
+@onready var Exit_Dialog_Layer = %Exit_Dialog
 
 func Tween_Background_Out_Focus():
 	var tween = create_tween()

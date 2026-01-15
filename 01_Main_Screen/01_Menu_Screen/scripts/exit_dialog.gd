@@ -1,9 +1,9 @@
 extends Control
 
 @onready var Button_Sound = $Button_Sound
-@onready var Menu_Screen = $"../../TextureRect"
-@onready var Canvas_Layer = $".."
-@onready var Exit_Dialog_Layer = $"."
+@onready var Menu_Screen = $"../.."
+@onready var Canvas_Layer = %Dialog_Group
+@onready var Exit_Dialog_Layer = %Exit_Dialog
 
 func Tween_Bacground_In_Focus():
 	var tween = create_tween()
