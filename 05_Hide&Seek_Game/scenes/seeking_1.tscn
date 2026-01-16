@@ -1,14 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhpsb5e33pggw"]
+[gd_scene load_steps=6 format=3 uid="uid://bhpsb5e33pggw"]
 
 [ext_resource type="Script" uid="uid://bxtg8egpb7pqb" path="res://05_Hide&Seek_Game/scripts/seeking_1.gd" id="1_ksk0w"]
 [ext_resource type="Texture2D" uid="uid://bicm4nvhf8rcg" path="res://05_Hide&Seek_Game/assests/images/20781.jpg" id="2_ana5r"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Retry_Button.png" id="3_ana5r"]
-[ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://00_Global_Commons/scripts/retry_button.gd" id="4_h1c1d"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Next_Button.png" id="5_2flro"]
-[ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://00_Global_Commons/scripts/next_button.gd" id="6_2xw1o"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="7_eslqd"]
-[ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="8_qhmho"]
-[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="9_po64x"]
+[ext_resource type="PackedScene" uid="uid://b6w6jjr5fpfio" path="res://00_Global_Commons/scenes/level_control.tscn" id="4_mg2vt"]
 [ext_resource type="Script" uid="uid://3h1vxoblelx5" path="res://05_Hide&Seek_Game/commons/camera_2d.gd" id="10_h1c1d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ana5r"]
@@ -49,58 +43,22 @@ script = ExtResource("10_h1c1d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Level_Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -32.5
+offset_right = 509.0
+offset_bottom = 32.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
+max_value = 5.0
+show_percentage = false
 
-[node name="Retry_Button" type="TextureButton" parent="CanvasLayer/Level_Control"]
-modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 0
-offset_left = 1900.0
-offset_top = 830.0
-offset_right = 2100.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("3_ana5r")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("4_h1c1d")
-Target_Scene = "res://05_Hide&Seek_Game/scenes/seeking_1.tscn"
-
-[node name="Next_Button" type="TextureButton" parent="CanvasLayer/Level_Control"]
-modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 0
-offset_left = 2100.0
-offset_top = 830.0
-offset_right = 2300.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("5_2flro")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("6_2xw1o")
-
-[node name="Home_Button" type="TextureButton" parent="CanvasLayer/Level_Control"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = 280.0
-offset_bottom = 230.0
-texture_normal = ExtResource("7_eslqd")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("8_qhmho")
-
-[node name="Button_Sound" type="AudioStreamPlayer2D" parent="CanvasLayer/Level_Control"]
-stream = ExtResource("9_po64x")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Level_Control"]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -113,7 +71,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Level_Control/ColorRect"]
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,25 +87,5 @@ grow_vertical = 2
 text = "1"
 label_settings = SubResource("LabelSettings_ana5r")
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Level_Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -509.0
-offset_top = -32.5
-offset_right = 509.0
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 5.0
-show_percentage = false
-
-[connection signal="button_down" from="CanvasLayer/Level_Control/Retry_Button" to="CanvasLayer/Level_Control/Retry_Button" method="_on_button_down"]
-[connection signal="button_up" from="CanvasLayer/Level_Control/Retry_Button" to="CanvasLayer/Level_Control/Retry_Button" method="_on_button_up"]
-[connection signal="button_down" from="CanvasLayer/Level_Control/Next_Button" to="CanvasLayer/Level_Control/Next_Button" method="_on_button_down"]
-[connection signal="button_up" from="CanvasLayer/Level_Control/Next_Button" to="CanvasLayer/Level_Control/Next_Button" method="_on_button_up"]
-[connection signal="button_down" from="CanvasLayer/Level_Control/Home_Button" to="CanvasLayer/Level_Control/Home_Button" method="_on_button_down"]
-[connection signal="button_up" from="CanvasLayer/Level_Control/Home_Button" to="CanvasLayer/Level_Control/Home_Button" method="_on_button_up"]
+[node name="Level_Control" parent="CanvasLayer" instance=ExtResource("4_mg2vt")]
+Retry_Scene = "res://05_Hide&Seek_Game/scenes/seeking_1.tscn"

@@ -1,5 +1,7 @@
 extends Control
 @onready var progressbar = $ProgressBar
+@onready var Level_Control = $Level_Control
+@onready var Progress_Bar_Logo = $ProgressBarLogo
 
 var bubble_template = preload("res://03_Pop_Game/commons/bubble_pop.tscn")
 var isWin = false
@@ -22,9 +24,9 @@ func spawn_bubble():
 func on_bubble_poped():
 	progressbar.value += 1
 	if progressbar.value >= 10:
-		$Level_Control/Retry_Button.show_with_fade()
-		$Level_Control/Next_Button.show_with_fade()
-		$ProgressBarLogo.modulate.a = 255
+		Level_Control.show_with_fade("retry")
+		Level_Control.show_with_fade("next")
+		Progress_Bar_Logo.modulate.a = 255
 		isWin = true
 		
 	await get_tree().create_timer(1).timeout

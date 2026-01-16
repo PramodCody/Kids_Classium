@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6w6jjr5fpfio"]
+[gd_scene load_steps=7 format=3 uid="uid://b6w6jjr5fpfio"]
 
+[ext_resource type="Script" uid="uid://dtwic6jgu3y6i" path="res://00_Global_Commons/scripts/level_control.gd" id="1_3h6ke"]
 [ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="1_j33d5"]
-[ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://00_Global_Commons/scripts/retry_button.gd" id="3_ij87i"]
-[ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://00_Global_Commons/scripts/next_button.gd" id="5_slhbe"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="7_ohfmv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbono"]
+atlas = ExtResource("1_j33d5")
+region = Rect2(1034, 38, 433, 431)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3h6ke"]
 atlas = ExtResource("1_j33d5")
@@ -14,11 +17,7 @@ filter_clip = true
 atlas = ExtResource("1_j33d5")
 region = Rect2(1536, 531, 431, 431)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rbono"]
-atlas = ExtResource("1_j33d5")
-region = Rect2(1034, 38, 433, 431)
-
-[node name="Control" type="Control"]
+[node name="Level_Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,44 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Retry_Button" type="TextureButton" parent="." groups=["button_sound"]]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.82
-anchor_top = 0.86
-anchor_right = 0.82
-anchor_bottom = 0.86
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.00006
-texture_normal = SubResource("AtlasTexture_3h6ke")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("3_ij87i")
-metadata/_edit_use_anchors_ = true
-
-[node name="Next_Button" type="TextureButton" parent="." groups=["button_sound"]]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.92
-anchor_top = 0.86
-anchor_right = 0.92
-anchor_bottom = 0.86
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.00006
-texture_normal = SubResource("AtlasTexture_q860e")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("5_slhbe")
+script = ExtResource("1_3h6ke")
 metadata/_edit_use_anchors_ = true
 
 [node name="Home_Button" type="TextureButton" parent="." groups=["button_sound"]]
@@ -84,9 +46,47 @@ stretch_mode = 4
 script = ExtResource("7_ohfmv")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="button_down" from="Retry_Button" to="Retry_Button" method="_on_button_down"]
-[connection signal="button_up" from="Retry_Button" to="Retry_Button" method="_on_button_up"]
-[connection signal="button_down" from="Next_Button" to="Next_Button" method="_on_button_down"]
-[connection signal="button_up" from="Next_Button" to="Next_Button" method="_on_button_up"]
+[node name="Retry_Button" type="TextureButton" parent="." groups=["button_sound"]]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83
+anchor_top = 0.86
+anchor_right = 0.83
+anchor_bottom = 0.86
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.00006
+texture_normal = SubResource("AtlasTexture_3h6ke")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Next_Button" type="TextureButton" parent="." groups=["button_sound"]]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92
+anchor_top = 0.86
+anchor_right = 0.92
+anchor_bottom = 0.86
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.00006
+texture_normal = SubResource("AtlasTexture_q860e")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
 [connection signal="button_down" from="Home_Button" to="Home_Button" method="_on_button_down"]
 [connection signal="button_up" from="Home_Button" to="Home_Button" method="_on_button_up"]
+[connection signal="button_down" from="Retry_Button" to="." method="_on_retry_button_button_down"]
+[connection signal="button_up" from="Retry_Button" to="." method="_on_retry_button_button_up"]
+[connection signal="button_down" from="Next_Button" to="." method="_on_next_button_button_down"]
+[connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]

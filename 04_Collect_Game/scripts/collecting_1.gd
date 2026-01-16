@@ -6,6 +6,7 @@ var random_position_3 = Vector2(randf_range(2400, 2700), randf_range(100, 980))
 
 @onready var progress_bar = $CharacterBody2D/ProgressBar
 var star_template = preload("res://04_Collect_Game/commons/twinkle_star.tscn")
+@onready var Level_Control = $Level_Control
 
 func spawn_star(pos : Vector2):
 	var new_star = star_template.instantiate()
@@ -23,8 +24,8 @@ func on_star_out_of_reach():
 func on_spaceship_collision_with_target_star():
 	progress_bar.value += 1
 	if progress_bar.value == 10:
-		$Level_Control/Retry_Button.show_with_fade()
-		$Level_Control/Next_Button.show_with_fade()
+		Level_Control.show_with_fade("retry")
+		Level_Control.show_with_fade("next")
 		return
 	spawn_star(Vector2(randf_range(2400, 3500), randf_range(200, 880)))
 

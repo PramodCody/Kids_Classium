@@ -80,7 +80,8 @@ stream = ExtResource("13_mb5mp")
 volume_db = 10.0
 parameters/looping = true
 
-[node name="Control" parent="." instance=ExtResource("6_5cwy6")]
+[node name="Level_Control" parent="." instance=ExtResource("6_5cwy6")]
 layout_mode = 1
+Retry_Scene = "res://02_Trace_Game/scenes/Tracing_1.tscn"
 
 [connection signal="tracing_changed" from="Node2D/First_Line" to="Node2D/Second _Line" method="_on_first_line_tracing_changed"]

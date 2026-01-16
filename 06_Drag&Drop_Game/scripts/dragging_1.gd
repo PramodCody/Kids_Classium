@@ -1,4 +1,5 @@
 extends Control
+@onready var Level_Control = $Level_Control
 var is_Mission_Area2d_Entered : bool
 var mission_counter = 0
 
@@ -71,5 +72,5 @@ func _ready() -> void:
 func on_mission_accomplished():
 	mission_counter += 1
 	if mission_counter == 3:
-		$Level_Control/Retry_Button.show_with_fade()
-		$Level_Control/Next_Button.show_with_fade()
+		Level_Control.show_with_fade("retry")
+		Level_Control.show_with_fade("next")

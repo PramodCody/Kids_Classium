@@ -1,8 +1,7 @@
 extends Control
 
-@onready var progress_bar = $CanvasLayer/Level_Control/ProgressBar
-@onready var retry_button = $CanvasLayer/Level_Control/Retry_Button
-@onready var next_button = $CanvasLayer/Level_Control/Next_Button
+@onready var progress_bar = $CanvasLayer/ProgressBar
+@onready var Level_Control = $CanvasLayer/Level_Control
 @onready var bacground_image = $TextureRect
 
 var grass_template = preload("res://05_Hide&Seek_Game/commons/grass.tscn")
@@ -36,8 +35,8 @@ func spawn_number():
 func on_finding_number():
 	progress_bar.value += 1
 	if progress_bar.value == progress_bar.max_value:
-		retry_button.show_with_fade()
-		next_button.show_with_fade()
+		Level_Control.show_with_fade("retry")
+		Level_Control.show_with_fade("next")
 
 func _ready() -> void:
 	for i in 10:
