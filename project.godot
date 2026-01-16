@@ -31,7 +31,8 @@ window/stretch/aspect="expand"
 
 [global_group]
 
-texture_buttons=""
+button_sound=""
+click_sound=""
 
 [input]
 

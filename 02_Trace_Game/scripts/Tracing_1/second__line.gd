@@ -2,6 +2,8 @@ extends Path2D
 
 @onready var line = $Line2D
 @onready var Tracing_Sound = $"../../Drawing_Sound_second"
+@onready var Controls = $"../../Control"
+
 var isDrawing_Sound_enable : bool
 
 var is_tracing : bool = false
@@ -36,8 +38,6 @@ func check_tracing(global_pos: Vector2):
 
 		if is_second_line_start_point_completed and is_second_line_end_point_completed:
 			is_tracing = false
-			$"../../Level_Control/Retry_Button".show_with_fade()
-			$"../../Level_Control/Next_Button".show_with_fade()
 			isDrawing_Sound_enable = false
 
 

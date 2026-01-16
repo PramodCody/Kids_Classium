@@ -1,12 +1,22 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6w6jjr5fpfio"]
 
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Retry_Button.png" id="2_ujypd"]
+[ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="1_j33d5"]
 [ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://00_Global_Commons/scripts/retry_button.gd" id="3_ij87i"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Next_Button.png" id="4_551a8"]
 [ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://00_Global_Commons/scripts/next_button.gd" id="5_slhbe"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="6_7hbt1"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="7_ohfmv"]
-[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="8_3pfut"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h6ke"]
+atlas = ExtResource("1_j33d5")
+region = Rect2(1524, 1031, 449, 449)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q860e"]
+atlas = ExtResource("1_j33d5")
+region = Rect2(1536, 531, 431, 431)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbono"]
+atlas = ExtResource("1_j33d5")
+region = Rect2(1034, 38, 433, 431)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,61 +25,68 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Level_Control" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
 
-[node name="Retry_Button" type="TextureButton" parent="Level_Control"]
+[node name="Retry_Button" type="TextureButton" parent="." groups=["button_sound"]]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 0
-offset_left = 1900.0
-offset_top = 830.0
-offset_right = 2100.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("2_ujypd")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.82
+anchor_top = 0.86
+anchor_right = 0.82
+anchor_bottom = 0.86
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.00006
+texture_normal = SubResource("AtlasTexture_3h6ke")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("3_ij87i")
+metadata/_edit_use_anchors_ = true
 
-[node name="Next_Button" type="TextureButton" parent="Level_Control"]
+[node name="Next_Button" type="TextureButton" parent="." groups=["button_sound"]]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 0
-offset_left = 2100.0
-offset_top = 830.0
-offset_right = 2300.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("4_551a8")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92
+anchor_top = 0.86
+anchor_right = 0.92
+anchor_bottom = 0.86
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.00006
+texture_normal = SubResource("AtlasTexture_q860e")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("5_slhbe")
+metadata/_edit_use_anchors_ = true
 
-[node name="Home_Button" type="TextureButton" parent="Level_Control"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = 280.0
-offset_bottom = 230.0
-texture_normal = ExtResource("6_7hbt1")
+[node name="Home_Button" type="TextureButton" parent="." groups=["button_sound"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08166666
+anchor_top = 0.13148148
+anchor_right = 0.08166667
+anchor_bottom = 0.13148148
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 89.999985
+offset_bottom = 89.999985
+texture_normal = SubResource("AtlasTexture_rbono")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("7_ohfmv")
+metadata/_edit_use_anchors_ = true
 
-[node name="Button_Sound" type="AudioStreamPlayer2D" parent="Level_Control"]
-stream = ExtResource("8_3pfut")
-
-[connection signal="button_down" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_up"]
-[connection signal="button_down" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_up"]
-[connection signal="button_down" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_up"]
+[connection signal="button_down" from="Retry_Button" to="Retry_Button" method="_on_button_down"]
+[connection signal="button_up" from="Retry_Button" to="Retry_Button" method="_on_button_up"]
+[connection signal="button_down" from="Next_Button" to="Next_Button" method="_on_button_down"]
+[connection signal="button_up" from="Next_Button" to="Next_Button" method="_on_button_up"]
+[connection signal="button_down" from="Home_Button" to="Home_Button" method="_on_button_down"]
+[connection signal="button_up" from="Home_Button" to="Home_Button" method="_on_button_up"]

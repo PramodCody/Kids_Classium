@@ -84,7 +84,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Exit_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/First_Container" groups=["texture_buttons"]]
+[node name="Exit_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/First_Container" groups=["button_sound"]]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -101,7 +101,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Levels_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Levels_Container" groups=["texture_buttons"]]
+[node name="Levels_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Levels_Container" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.65
@@ -131,7 +131,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Mute_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer" groups=["texture_buttons"]]
+[node name="Mute_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
@@ -141,7 +141,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_44rig")
 
-[node name="Settings_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer" groups=["texture_buttons"]]
+[node name="Settings_Button" type="TextureButton" parent="MarginContainer/Full_VBox/Bottom_Container/Last_Container/HBoxContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
@@ -161,7 +161,7 @@ unique_name_in_owner = true
 volume_db = 10.0
 autoplay = true
 
-[node name="Play_Button" type="TextureButton" parent="." groups=["texture_buttons"]]
+[node name="Play_Button" type="TextureButton" parent="." groups=["button_sound"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

@@ -1,16 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c61eu6xs41ldf"]
+[gd_scene load_steps=9 format=3 uid="uid://c61eu6xs41ldf"]
 
 [ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://02_Trace_Game/assests/images/Background.png" id="1_62xts"]
 [ext_resource type="Script" uid="uid://lmp13qa00ihk" path="res://02_Trace_Game/scripts/Tracing_1/first_line.gd" id="2_qe2g6"]
 [ext_resource type="Script" uid="uid://c7h0idksumhlk" path="res://02_Trace_Game/scripts/Tracing_1/second__line.gd" id="3_tjm1a"]
 [ext_resource type="Texture2D" uid="uid://dw2tjwsr63lyg" path="res://02_Trace_Game/assests/images/One.png" id="4_66nyc"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Retry_Button.png" id="5_nnp0d"]
-[ext_resource type="Script" uid="uid://f672qfeu3vap" path="res://00_Global_Commons/scripts/retry_button.gd" id="6_1falw"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Next_Button.png" id="7_fp6c2"]
-[ext_resource type="Script" uid="uid://ctl5iy8316l1o" path="res://00_Global_Commons/scripts/next_button.gd" id="8_scmmr"]
-[ext_resource type="Texture2D" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Home_Button.png" id="9_7xfac"]
-[ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="10_4eblv"]
-[ext_resource type="AudioStream" uid="uid://b2wofwutebcjk" path="res://00_Global_Commons/assests/Button_Sound.mp3" id="11_gu3ny"]
+[ext_resource type="PackedScene" uid="uid://b6w6jjr5fpfio" path="res://00_Global_Commons/scenes/level_control.tscn" id="6_5cwy6"]
 [ext_resource type="AudioStream" uid="uid://dshnrlhpu876y" path="res://02_Trace_Game/assests/sounds/Drawing_Sound.mp3" id="13_mb5mp"]
 
 [sub_resource type="Curve2D" id="Curve2D_eby7c"]
@@ -76,10 +70,6 @@ position = Vector2(1877, 676)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_66nyc")
 
-[node name="Background_Sound" type="AudioStreamPlayer2D" parent="."]
-volume_db = 5.0
-autoplay = true
-
 [node name="Drawing_Sound_first" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_mb5mp")
 volume_db = 10.0
@@ -90,60 +80,7 @@ stream = ExtResource("13_mb5mp")
 volume_db = 10.0
 parameters/looping = true
 
-[node name="Level_Control" type="Control" parent="."]
+[node name="Control" parent="." instance=ExtResource("6_5cwy6")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
-
-[node name="Retry_Button" type="TextureButton" parent="Level_Control"]
-modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 0
-offset_left = 1900.0
-offset_top = 830.0
-offset_right = 2100.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("5_nnp0d")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("6_1falw")
-Target_Scene = "res://02_Trace_Game/scenes/Tracing_1.tscn"
-
-[node name="Next_Button" type="TextureButton" parent="Level_Control"]
-modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 0
-offset_left = 2100.0
-offset_top = 830.0
-offset_right = 2300.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("7_fp6c2")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("8_scmmr")
-
-[node name="Home_Button" type="TextureButton" parent="Level_Control"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = 280.0
-offset_bottom = 230.0
-texture_normal = ExtResource("9_7xfac")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("10_4eblv")
-
-[node name="Button_Sound" type="AudioStreamPlayer2D" parent="Level_Control"]
-stream = ExtResource("11_gu3ny")
 
 [connection signal="tracing_changed" from="Node2D/First_Line" to="Node2D/Second _Line" method="_on_first_line_tracing_changed"]
-[connection signal="button_down" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Retry_Button" to="Level_Control/Retry_Button" method="_on_button_up"]
-[connection signal="button_down" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Next_Button" to="Level_Control/Next_Button" method="_on_button_up"]
-[connection signal="button_down" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_down"]
-[connection signal="button_up" from="Level_Control/Home_Button" to="Level_Control/Home_Button" method="_on_button_up"]
