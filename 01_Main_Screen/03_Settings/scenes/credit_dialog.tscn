@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfa85bv5ak32t"]
+
+[ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="1_sd13r"]
+[ext_resource type="Script" uid="uid://d2shaf4h62d0u" path="res://01_Main_Screen/03_Settings/scripts/rich_text_label.gd" id="2_7j33b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ga3f"]
+bg_color = Color(0.2977817, 0.62428975, 0.7096007, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j0g5"]
+bg_color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ga3f"]
+font_size = 100
+font_color = Color(0.9607843, 0.61960787, 0.043137256, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.95686275)
+shadow_offset = Vector2(5, 5)
+
+[node name="Credit_Dialog" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ga3f")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0j0g5")
+
+[node name="Label" type="Label" parent="VBoxContainer/Title"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sd13r")
+text = "Credit"
+label_settings = SubResource("LabelSettings_8ga3f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9814107, 0.4187749, 0.65018797, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7294118)
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/normal_font = ExtResource("1_sd13r")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center][b][font_size=50]CREDITS[/font_size][/b][/center]
+
+[font_size=30][b]Graphics & Icons:[/b][/font_size]
+• Icons and graphics provided by Freepik
+• Visit: [url=https://www.freepik.com][color=#4A9EFF]www.freepik.com[/color][/url]
+
+[font_size=30][b]Fonts:[/b][/font_size]
+• Fonts provided by 1001Fonts
+• Visit: [url=https://www.1001fonts.com][color=#4A9EFF]www.1001fonts.com[/color][/url]
+
+[center][font_size=30][i]Special thanks to these resources for making this project possible.[/i][/font_size][/center]"
+script = ExtResource("2_7j33b")
