@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d4l0td7o5juxt"]
+[gd_scene load_steps=22 format=3 uid="uid://d4l0td7o5juxt"]
 
 [ext_resource type="Script" uid="uid://cmiftdea45xxy" path="res://01_Main_Screen/03_Settings/scripts/buttons_group.gd" id="1_wveag"]
 [ext_resource type="FontFile" uid="uid://okcq0l6xrgqh" path="res://01_Main_Screen/03_Settings/assests/Title_Font.otf" id="1_ypvht"]
@@ -7,6 +7,14 @@
 [ext_resource type="FontFile" uid="uid://3wdruuibrgf1" path="res://01_Main_Screen/03_Settings/assests/Button_Font.otf" id="3_r1634"]
 [ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="6_5tvld"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="7_rgpvf"]
+
+[sub_resource type="Gradient" id="Gradient_8ga3f"]
+colors = PackedColorArray(0.5568628, 0.32941177, 0.9137255, 1, 0.2784314, 0.4627451, 0.9019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rgpvf"]
+gradient = SubResource("Gradient_8ga3f")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1634"]
 bg_color = Color(0.9395096, 0.30768842, 0.30241117, 1)
@@ -21,7 +29,7 @@ font_size = 130
 font_color = Color(0.20604464, 0.71396583, 0.8941005, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
-shadow_size = 10
+shadow_size = 25
 shadow_color = Color(0, 0.5882353, 0, 0.94509804)
 shadow_offset = Vector2(5, 5)
 
@@ -105,14 +113,14 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.8185868, 0.43177572, 0.55112237, 1)
+texture = SubResource("GradientTexture2D_rgpvf")
 metadata/_edit_use_anchors_ = true
 
 [node name="Top" type="ColorRect" parent="Background"]
@@ -249,7 +257,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dytvf")
 
 [node name="About_Dialog" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("2_dcewm")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="check" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("3_dytvf")]

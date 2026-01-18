@@ -1,35 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbd17hidrcmt6"]
+[gd_scene load_steps=5 format=3 uid="uid://cbd17hidrcmt6"]
+
+[ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="1_f6xdr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ga3f"]
+bg_color = Color(0.2977817, 0.62428975, 0.7096007, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j0g5"]
+bg_color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ga3f"]
-font_size = 80
+font_size = 100
+font_color = Color(0.9607843, 0.61960787, 0.043137256, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.95686275)
+shadow_offset = Vector2(5, 5)
 
-[node name="About_Dialog" type="PanelContainer"]
-anchors_preset = -1
-anchor_left = 0.29
-anchor_top = 0.2
-anchor_right = 0.95
-anchor_bottom = 0.9
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="About_Dialog" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ga3f")
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0j0g5")
 
 [node name="Label" type="Label" parent="VBoxContainer/Title"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f6xdr")
 text = "About"
 label_settings = SubResource("LabelSettings_8ga3f")
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9814107, 0.4187749, 0.65018797, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7294118)
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/normal_font = ExtResource("1_f6xdr")
 theme_override_font_sizes/normal_font_size = 40
 text = "Hello, I am a Human Educator Who is trying his best in free education Compaign. Thank You For Downloading This App.
 Feel Free to Tell us any Suggestion you want on our App."
