@@ -10,7 +10,9 @@ script = ExtResource("1_tojxl")
 [node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_076gh")
 volume_db = 5.0
+bus = &"Button_Sound"
 
 [node name="Click_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_076gh")
 volume_db = 20.0
+bus = &"Click_Sound"

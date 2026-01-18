@@ -1,0 +1,246 @@
+[gd_scene load_steps=10 format=3 uid="uid://r31ala550nrv"]
+
+[ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="1_vfqj8"]
+[ext_resource type="Script" uid="uid://c8qbeuoeoge2r" path="res://01_Main_Screen/03_Settings/scripts/bg_slider.gd" id="2_ytnuc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ga3f"]
+bg_color = Color(0.2977817, 0.62428975, 0.7096007, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j0g5"]
+bg_color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ga3f"]
+font_size = 100
+font_color = Color(0.9607843, 0.61960787, 0.043137256, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.95686275)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytnuc"]
+bg_color = Color(0.2901961, 0.87058824, 0.5019608, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ytnuc"]
+font = ExtResource("1_vfqj8")
+font_size = 35
+font_color = Color(0.7620287, 0.27006793, 0.92320395, 1)
+shadow_size = 2
+shadow_color = Color(0.12315822, 0.15594886, 0.5220287, 0.95500004)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vafns"]
+bg_color = Color(0.97633153, 0.63822544, 0.21508199, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 15.0
+expand_margin_bottom = 15.0
+shadow_color = Color(0.65882355, 0.050980393, 0.35686275, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aax6l"]
+bg_color = Color(0.81133634, 0.09539471, 0.548886, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 20.0
+expand_margin_right = 10.0
+expand_margin_bottom = 20.0
+shadow_size = 5
+
+[node name="Sound_Dialog" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ga3f")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0j0g5")
+
+[node name="Label" type="Label" parent="VBoxContainer/Title"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vfqj8")
+text = "Sound"
+label_settings = SubResource("LabelSettings_8ga3f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sound_Titles" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytnuc")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles/PanelContainer"]
+layout_mode = 2
+text = "Background Sound"
+label_settings = SubResource("LabelSettings_ytnuc")
+horizontal_alignment = 1
+
+[node name="gap1" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytnuc")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles/PanelContainer2"]
+layout_mode = 2
+text = "Button Sound"
+label_settings = SubResource("LabelSettings_ytnuc")
+horizontal_alignment = 1
+
+[node name="gap2" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytnuc")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles/PanelContainer3"]
+layout_mode = 2
+text = "Click Sound"
+label_settings = SubResource("LabelSettings_ytnuc")
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Sound_Titles"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="Scroll_Sounds" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.08
+
+[node name="Sound_Sliders" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer/Sound_Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Background_Volume" type="HSlider" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer/Sound_Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/slider = SubResource("StyleBoxFlat_vafns")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_aax6l")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_aax6l")
+max_value = 2.0
+step = 0.01
+script = ExtResource("2_ytnuc")
+audio_bus_name = "Background_Sound"
+
+[node name="gap1" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer/Sound_Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Button_Volume" type="HSlider" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer/Sound_Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/slider = SubResource("StyleBoxFlat_vafns")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_aax6l")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_aax6l")
+max_value = 2.0
+step = 0.01
+script = ExtResource("2_ytnuc")
+audio_bus_name = "Button_Sound"
+
+[node name="gap2" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer/Sound_Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Click_Volume" type="HSlider" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer/Sound_Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/slider = SubResource("StyleBoxFlat_vafns")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_aax6l")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_aax6l")
+max_value = 2.0
+step = 0.01
+script = ExtResource("2_ytnuc")
+audio_bus_name = "Click_Sound"
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/HBoxContainer/Scroll_Sounds/HBoxContainer/Sound_Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6k5llsth1sl3"]
+[gd_scene load_steps=17 format=3 uid="uid://c6k5llsth1sl3"]
 
 [ext_resource type="Script" uid="uid://2k6s13aarpm8" path="res://01_Main_Screen/01_Menu_Screen/scripts/menu_screen.gd" id="1_edb7x"]
 [ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://02_Trace_Game/assests/images/Background.png" id="2_44rig"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cf84ahi3fu4p6" path="res://01_Main_Screen/01_Menu_Screen/scripts/levels_button.gd" id="5_4sv2p"]
 [ext_resource type="Script" uid="uid://8uwxbvctfuti" path="res://01_Main_Screen/01_Menu_Screen/scripts/exit_button.gd" id="7_0osx7"]
 [ext_resource type="Script" uid="uid://ofu5gblr6gu0" path="res://01_Main_Screen/01_Menu_Screen/scripts/settings_button.gd" id="9_62wn8"]
+[ext_resource type="AudioStream" uid="uid://b4orfbh16q2ir" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Background_Sound.mp3" id="10_44rig"]
 [ext_resource type="Script" uid="uid://4o14sveq8n34" path="res://01_Main_Screen/01_Menu_Screen/scripts/extra_button.gd" id="11_44rig"]
 [ext_resource type="PackedScene" uid="uid://4a5pn771bmd4" path="res://01_Main_Screen/01_Menu_Screen/scenes/exit_dialog.tscn" id="12_44rig"]
 
@@ -158,8 +159,9 @@ visible = false
 unique_name_in_owner = true
 
 [node name="Background_Sound" type="AudioStreamPlayer2D" parent="."]
-volume_db = 10.0
+stream = ExtResource("10_44rig")
 autoplay = true
+bus = &"Background_Sound"
 
 [node name="Play_Button" type="TextureButton" parent="." groups=["button_sound"]]
 layout_mode = 1

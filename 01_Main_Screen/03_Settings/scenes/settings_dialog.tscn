@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cmiftdea45xxy" path="res://01_Main_Screen/03_Settings/scripts/buttons_group.gd" id="1_wveag"]
 [ext_resource type="FontFile" uid="uid://okcq0l6xrgqh" path="res://01_Main_Screen/03_Settings/assests/Title_Font.otf" id="1_ypvht"]
 [ext_resource type="PackedScene" uid="uid://cbd17hidrcmt6" path="res://01_Main_Screen/03_Settings/scenes/about_dialog.tscn" id="2_dcewm"]
-[ext_resource type="PackedScene" uid="uid://d2h3uct2jgcg4" path="res://check.tscn" id="3_dytvf"]
 [ext_resource type="FontFile" uid="uid://3wdruuibrgf1" path="res://01_Main_Screen/03_Settings/assests/Button_Font.otf" id="3_r1634"]
+[ext_resource type="PackedScene" uid="uid://r31ala550nrv" path="res://01_Main_Screen/03_Settings/scenes/sound_dialog.tscn" id="5_rgpvf"]
 [ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="6_5tvld"]
 [ext_resource type="Script" uid="uid://f80gok7fjyoh" path="res://00_Global_Commons/scripts/home_button.gd" id="7_rgpvf"]
 
@@ -257,12 +257,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dytvf")
 
 [node name="About_Dialog" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("2_dcewm")]
 unique_name_in_owner = true
-layout_mode = 2
-
-[node name="check" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("3_dytvf")]
 visible = false
 layout_mode = 2
-color = Color(0.5821137, 0.69750315, 0.28029096, 1)
+
+[node name="Sound_Dialog" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("5_rgpvf")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Home_Button" type="TextureButton" parent="." groups=["button_sound"]]
 layout_mode = 1

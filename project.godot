@@ -17,6 +17,10 @@ config/features=PackedStringArray("4.5", "Mobile")
 config/icon="uid://c22w66hv64n0y"
 boot_splash/icon="uid://c22w66hv64n0y"
 
+[audio]
+
+buses/default_bus_layout="uid://dtaym8oo7kaga"
+
 [autoload]
 
 AudioManager="*res://00_Global_Commons/scenes/audio_manager.tscn"
