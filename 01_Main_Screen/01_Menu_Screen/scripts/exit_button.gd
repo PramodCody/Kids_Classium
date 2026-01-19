@@ -1,5 +1,5 @@
 extends TextureButton
-@onready var Menu_Screen = $"../../../../.."
+@onready var Menu_Screen = $"../../../.."
 @onready var Canvas_Layer = %Dialog_Group
 @onready var Exit_Dialog_Layer = %Exit_Dialog
 

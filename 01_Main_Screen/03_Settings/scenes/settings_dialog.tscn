@@ -277,7 +277,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dytvf")
 
 [node name="About_Dialog" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("2_dcewm")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Sound_Dialog" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("5_rgpvf")]
@@ -287,6 +286,7 @@ layout_mode = 2
 
 [node name="Credit_Dialog" parent="Full_Vbox/Bottom/HBoxContainer/Action_Box" instance=ExtResource("6_tn0vf")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Home_Button" type="TextureButton" parent="." groups=["button_sound"]]
