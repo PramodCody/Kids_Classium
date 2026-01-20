@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://2k6s13aarpm8" path="res://01_Main_Screen/01_Menu_Screen/scripts/menu_screen.gd" id="1_edb7x"]
 [ext_resource type="Texture2D" uid="uid://dndomxy0u6l6j" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Background.jpg" id="2_qcr4d"]
 [ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="3_44rig"]
-[ext_resource type="Script" uid="uid://bfe6g8f7kqkx4" path="res://00_Global_Commons/scripts/safe_area.gd" id="3_it6ul"]
+[ext_resource type="Script" uid="uid://d32gsdu4fl1v" path="res://01_Main_Screen/01_Menu_Screen/scripts/menu_screen_safe_area.gd" id="3_qcr4d"]
+[ext_resource type="Texture2D" uid="uid://cf35mws4i0p1a" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Play_Tree.png" id="4_qcr4d"]
 [ext_resource type="Script" uid="uid://bug2p7hf80dhh" path="res://01_Main_Screen/01_Menu_Screen/scripts/play_button.gd" id="4_sj757"]
 [ext_resource type="Script" uid="uid://cf84ahi3fu4p6" path="res://01_Main_Screen/01_Menu_Screen/scripts/levels_button.gd" id="5_4sv2p"]
 [ext_resource type="Texture2D" uid="uid://cn6j1erbil7pt" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Up_Levels_Collection.png" id="5_ybj5g"]
@@ -13,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://b4orfbh16q2ir" path="res://01_Main_Screen/01_Menu_Screen/assests/sounds/Background_Sound.mp3" id="10_44rig"]
 [ext_resource type="Script" uid="uid://4o14sveq8n34" path="res://01_Main_Screen/01_Menu_Screen/scripts/extra_button.gd" id="11_44rig"]
 [ext_resource type="PackedScene" uid="uid://4a5pn771bmd4" path="res://01_Main_Screen/01_Menu_Screen/scenes/exit_dialog.tscn" id="12_44rig"]
-[ext_resource type="Texture2D" uid="uid://biime0pgvgfw6" path="res://01_Main_Screen/01_Menu_Screen/assests/images/Play_Tree.png" id="15_it6ul"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcr4d"]
 bg_color = Color(0.93333334, 0.6, 0.6, 1)
@@ -87,7 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_it6ul")
+script = ExtResource("3_qcr4d")
 
 [node name="Bottom_Design" type="Control" parent="MarginContainer"]
 layout_mode = 2
@@ -157,22 +157,23 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_it6ul")
 layout_mode = 2
 
 [node name="Play_Button" type="TextureButton" parent="MarginContainer/Menu_Buttons" groups=["button_sound"]]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -378.0
-offset_top = -499.0
-offset_right = 385.0
-offset_bottom = 264.0
+offset_left = -337.0
+offset_top = -502.0
+offset_right = 319.0
+offset_bottom = 261.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 18.92
-texture_normal = ExtResource("15_it6ul")
+texture_normal = ExtResource("4_qcr4d")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("4_sj757")
@@ -270,7 +271,6 @@ visible = false
 [node name="Exit_Dialog" parent="Dialog_Group" instance=ExtResource("12_44rig")]
 unique_name_in_owner = true
 
-[connection signal="bottom_panel_changed" from="MarginContainer" to="." method="_on_margin_container_bottom_panel_changed"]
 [connection signal="button_down" from="MarginContainer/Menu_Buttons/Play_Button" to="MarginContainer/Menu_Buttons/Play_Button" method="_on_button_down"]
 [connection signal="button_up" from="MarginContainer/Menu_Buttons/Play_Button" to="MarginContainer/Menu_Buttons/Play_Button" method="_on_button_up"]
 [connection signal="button_down" from="MarginContainer/Menu_Buttons/Exit_Button" to="MarginContainer/Menu_Buttons/Exit_Button" method="_on_button_down"]

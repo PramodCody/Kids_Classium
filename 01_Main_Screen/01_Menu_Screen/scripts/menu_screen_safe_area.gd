@@ -1,4 +1,5 @@
 extends MarginContainer
+signal bottom_panel_changed(margin_value)
 
 func Safe_Area():
 	var os_name = OS.get_name()
@@ -10,6 +11,7 @@ func Safe_Area():
 		var margin_top = safe_area.position.y
 		var margin_right = screen_size.x - safe_area.end.x
 		var margin_bottom = screen_size.y - safe_area.end.y
+		bottom_panel_changed.emit(margin_bottom)
 		
 		if screen_size.x > screen_size.y:
 			add_theme_constant_override("margin_left", margin_left)

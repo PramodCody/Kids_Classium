@@ -1,4 +1,5 @@
 extends TextureButton
+@onready var play_button = %Play_Button
 
 
 var scale_strength = 0.06
