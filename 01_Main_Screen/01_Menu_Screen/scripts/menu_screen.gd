@@ -18,3 +18,9 @@ func _notification(what):
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		Tween_Background_Out_Focus()
 		Exit_Dialog_In()
+
+
+func _on_margin_container_bottom_panel_changed(margin_value: Variant) -> void:
+	var old_size_y = %Bottom_Panel.size.y
+	var current_size_y = old_size_y + margin_value
+	%Bottom_Panel.size.y = current_size_y

@@ -66,21 +66,34 @@ texture = ExtResource("2_qcr4d")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Bottom_Design" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="Bottom_Design"]
+[node name="Bottom_Panel" type="Panel" parent="."]
+unique_name_in_owner = true
 z_index = -1
-anchors_preset = -1
-anchor_top = 0.93
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -107.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qcr4d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qcr4d")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("3_it6ul")
 
-[node name="Panel2" type="Panel" parent="Bottom_Design"]
+[node name="Bottom_Design" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Bottom_Design"]
 z_index = -5
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -91,8 +104,9 @@ offset_bottom = -24.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_it6ul")
 
-[node name="Panel3" type="Panel" parent="Bottom_Design"]
+[node name="Panel3" type="Panel" parent="MarginContainer/Bottom_Design"]
 z_index = -5
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -106,8 +120,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_it6ul")
 
-[node name="Panel4" type="Panel" parent="Bottom_Design"]
+[node name="Panel4" type="Panel" parent="MarginContainer/Bottom_Design"]
 z_index = -5
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -121,8 +136,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_it6ul")
 
-[node name="Panel5" type="Panel" parent="Bottom_Design"]
+[node name="Panel5" type="Panel" parent="MarginContainer/Bottom_Design"]
 z_index = -5
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -136,25 +152,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_it6ul")
 
-[node name="Menu_Buttons" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu_Buttons"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("3_it6ul")
-metadata/_edit_use_anchors_ = true
-
-[node name="Control" type="Control" parent="Menu_Buttons/MarginContainer"]
+[node name="Menu_Buttons" type="Control" parent="MarginContainer"]
 layout_mode = 2
-metadata/_edit_lock_ = true
 
-[node name="Play_Button" type="TextureButton" parent="Menu_Buttons/MarginContainer/Control" groups=["button_sound"]]
+[node name="Play_Button" type="TextureButton" parent="MarginContainer/Menu_Buttons" groups=["button_sound"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,26 +176,24 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("4_sj757")
 
-[node name="Exit_Button" type="TextureButton" parent="Menu_Buttons/MarginContainer/Control" groups=["button_sound"]]
+[node name="Exit_Button" type="TextureButton" parent="MarginContainer/Menu_Buttons" groups=["button_sound"]]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.054583333
-anchor_top = 0.8981481
-anchor_right = 0.054583333
-anchor_bottom = 0.8981481
-offset_left = -80.0
-offset_top = -80.0
-offset_right = 80.0
-offset_bottom = 80.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -190.0
+offset_right = 210.0
+offset_bottom = -30.0
+grow_vertical = 0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
 texture_normal = SubResource("AtlasTexture_qcr4d")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("7_0osx7")
-metadata/_edit_use_anchors_ = true
 
-[node name="Mute_Button" type="TextureButton" parent="Menu_Buttons/MarginContainer/Control" groups=["button_sound"]]
+[node name="Mute_Button" type="TextureButton" parent="MarginContainer/Menu_Buttons" groups=["button_sound"]]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -202,9 +201,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -437.0
-offset_top = -191.0
+offset_top = -190.0
 offset_right = -277.0
-offset_bottom = -31.0
+offset_bottom = -30.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -215,7 +214,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_44rig")
 
-[node name="Settings_Button" type="TextureButton" parent="Menu_Buttons/MarginContainer/Control" groups=["button_sound"]]
+[node name="Settings_Button" type="TextureButton" parent="MarginContainer/Menu_Buttons" groups=["button_sound"]]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -235,7 +234,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("9_62wn8")
 
-[node name="Levels_Button" type="TextureButton" parent="Menu_Buttons/MarginContainer/Control" groups=["button_sound"]]
+[node name="Levels_Button" type="TextureButton" parent="MarginContainer/Menu_Buttons" groups=["button_sound"]]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -270,13 +269,14 @@ visible = false
 [node name="Exit_Dialog" parent="Dialog_Group" instance=ExtResource("12_44rig")]
 unique_name_in_owner = true
 
-[connection signal="button_down" from="Menu_Buttons/MarginContainer/Control/Play_Button" to="Menu_Buttons/MarginContainer/Control/Play_Button" method="_on_button_down"]
-[connection signal="button_up" from="Menu_Buttons/MarginContainer/Control/Play_Button" to="Menu_Buttons/MarginContainer/Control/Play_Button" method="_on_button_up"]
-[connection signal="button_down" from="Menu_Buttons/MarginContainer/Control/Exit_Button" to="Menu_Buttons/MarginContainer/Control/Exit_Button" method="_on_button_down"]
-[connection signal="button_up" from="Menu_Buttons/MarginContainer/Control/Exit_Button" to="Menu_Buttons/MarginContainer/Control/Exit_Button" method="_on_button_up"]
-[connection signal="button_down" from="Menu_Buttons/MarginContainer/Control/Mute_Button" to="Menu_Buttons/MarginContainer/Control/Mute_Button" method="_on_button_down"]
-[connection signal="button_up" from="Menu_Buttons/MarginContainer/Control/Mute_Button" to="Menu_Buttons/MarginContainer/Control/Mute_Button" method="_on_button_up"]
-[connection signal="button_down" from="Menu_Buttons/MarginContainer/Control/Settings_Button" to="Menu_Buttons/MarginContainer/Control/Settings_Button" method="_on_button_down"]
-[connection signal="button_up" from="Menu_Buttons/MarginContainer/Control/Settings_Button" to="Menu_Buttons/MarginContainer/Control/Settings_Button" method="_on_button_up"]
-[connection signal="button_down" from="Menu_Buttons/MarginContainer/Control/Levels_Button" to="Menu_Buttons/MarginContainer/Control/Levels_Button" method="_on_button_down"]
-[connection signal="button_up" from="Menu_Buttons/MarginContainer/Control/Levels_Button" to="Menu_Buttons/MarginContainer/Control/Levels_Button" method="_on_button_up"]
+[connection signal="bottom_panel_changed" from="MarginContainer" to="." method="_on_margin_container_bottom_panel_changed"]
+[connection signal="button_down" from="MarginContainer/Menu_Buttons/Play_Button" to="MarginContainer/Menu_Buttons/Play_Button" method="_on_button_down"]
+[connection signal="button_up" from="MarginContainer/Menu_Buttons/Play_Button" to="MarginContainer/Menu_Buttons/Play_Button" method="_on_button_up"]
+[connection signal="button_down" from="MarginContainer/Menu_Buttons/Exit_Button" to="MarginContainer/Menu_Buttons/Exit_Button" method="_on_button_down"]
+[connection signal="button_up" from="MarginContainer/Menu_Buttons/Exit_Button" to="MarginContainer/Menu_Buttons/Exit_Button" method="_on_button_up"]
+[connection signal="button_down" from="MarginContainer/Menu_Buttons/Mute_Button" to="MarginContainer/Menu_Buttons/Mute_Button" method="_on_button_down"]
+[connection signal="button_up" from="MarginContainer/Menu_Buttons/Mute_Button" to="MarginContainer/Menu_Buttons/Mute_Button" method="_on_button_up"]
+[connection signal="button_down" from="MarginContainer/Menu_Buttons/Settings_Button" to="MarginContainer/Menu_Buttons/Settings_Button" method="_on_button_down"]
+[connection signal="button_up" from="MarginContainer/Menu_Buttons/Settings_Button" to="MarginContainer/Menu_Buttons/Settings_Button" method="_on_button_up"]
+[connection signal="button_down" from="MarginContainer/Menu_Buttons/Levels_Button" to="MarginContainer/Menu_Buttons/Levels_Button" method="_on_button_down"]
+[connection signal="button_up" from="MarginContainer/Menu_Buttons/Levels_Button" to="MarginContainer/Menu_Buttons/Levels_Button" method="_on_button_up"]
