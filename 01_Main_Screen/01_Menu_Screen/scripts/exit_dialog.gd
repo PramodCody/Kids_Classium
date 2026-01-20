@@ -1,7 +1,7 @@
 extends Control
 
 @onready var Button_Sound = $Button_Sound
-@onready var Menu_Screen = $"../.."
+@onready var Menu_Screen = %TextureRect
 @onready var Canvas_Layer = %Dialog_Group
 @onready var Exit_Dialog_Layer = %Exit_Dialog
 

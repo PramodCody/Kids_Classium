@@ -19,5 +19,5 @@ func _on_button_up() -> void:
 	tween.tween_property(self, "scale", Vector2.ONE, animation_speed * 4)\
 	.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	
-	#await get_tree().create_timer(0.15).timeout
+	await AudioManager.Button_Sound.finished
 	get_tree().change_scene_to_file("res://01_Main_Screen/03_Settings/scenes/settings_dialog.tscn")
