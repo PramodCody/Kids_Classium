@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsevj3sgyqu8q"]
+[gd_scene load_steps=9 format=3 uid="uid://dsevj3sgyqu8q"]
 
 [ext_resource type="Script" uid="uid://bfe6g8f7kqkx4" path="res://00_Global_Commons/scripts/safe_area.gd" id="1_n64cy"]
 [ext_resource type="PackedScene" uid="uid://dw1avd6aemusn" path="res://01_Main_Screen/02_Levels_Collection/scenes/lessons_collection.tscn" id="2_bbf88"]
+[ext_resource type="Script" uid="uid://chmnj5o8j7lrr" path="res://01_Main_Screen/02_Levels_Collection/scripts/toggle_buttons.gd" id="2_mndmb"]
 [ext_resource type="PackedScene" uid="uid://h5v21uy88gxx" path="res://01_Main_Screen/02_Levels_Collection/scenes/games_collection.tscn" id="3_oxbjo"]
-[ext_resource type="PackedScene" uid="uid://d1up6u5wg74n5" path="res://01_Main_Screen/02_Levels_Collection/scenes/numbers_collection.tscn" id="4_etwha"]
+[ext_resource type="PackedScene" uid="uid://d1up6u5wg74n5" path="res://01_Main_Screen/02_Levels_Collection/scenes/popup_numbers_collection.tscn" id="4_etwha"]
+[ext_resource type="PackedScene" uid="uid://ctuvmpaxqms21" path="res://01_Main_Screen/02_Levels_Collection/scenes/popup_lessons_collection.tscn" id="6_o82pf"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_n64cy"]
 
@@ -37,12 +39,14 @@ size_flags_stretch_ratio = 0.02
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.14
+script = ExtResource("2_mndmb")
 
 [node name="Control" type="Control" parent="MarginContainer/Main_Box/Toggle_Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="MarginContainer/Main_Box/Toggle_Buttons"]
+[node name="toggle_Lessons" type="Button" parent="MarginContainer/Main_Box/Toggle_Buttons" groups=["click_sound"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 80
@@ -54,7 +58,8 @@ text = "Lessons"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button2" type="Button" parent="MarginContainer/Main_Box/Toggle_Buttons"]
+[node name="toggle_Games" type="Button" parent="MarginContainer/Main_Box/Toggle_Buttons" groups=["click_sound"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 80
@@ -75,15 +80,19 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="Lessons_Collection" parent="MarginContainer/Main_Box/Button_Collections" instance=ExtResource("2_bbf88")]
-visible = false
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Games_Collection" parent="MarginContainer/Main_Box/Button_Collections" instance=ExtResource("3_oxbjo")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
 [node name="Popups_Collection" type="HBoxContainer" parent="MarginContainer/Main_Box/Button_Collections"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
+mouse_filter = 0
 
 [node name="Control" type="Control" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection"]
 layout_mode = 2
@@ -93,14 +102,18 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
+mouse_filter = 0
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_bottom = 200
 
-[node name="Numbers_Collection" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection/Button_Popups" instance=ExtResource("4_etwha")]
+[node name="popup_Numbers_Collection" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection/Button_Popups" instance=ExtResource("4_etwha")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Lessons_Collection" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection/Button_Popups" instance=ExtResource("2_bbf88")]
+[node name="popup_Lessons_Collection" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection/Button_Popups" instance=ExtResource("6_o82pf")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Control2" type="Control" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection"]
@@ -109,3 +122,6 @@ size_flags_horizontal = 3
 
 [node name="Button_Popups" type="CanvasLayer" parent="."]
 visible = false
+
+[connection signal="toggled" from="MarginContainer/Main_Box/Toggle_Buttons/toggle_Lessons" to="MarginContainer/Main_Box/Toggle_Buttons" method="_on_toggle_lessons_toggled"]
+[connection signal="toggled" from="MarginContainer/Main_Box/Toggle_Buttons/toggle_Games" to="MarginContainer/Main_Box/Toggle_Buttons" method="_on_toggle_games_toggled"]

@@ -25,6 +25,8 @@ buses/default_bus_layout="uid://dtaym8oo7kaga"
 
 AudioManager="*res://00_Global_Commons/scenes/audio_manager.tscn"
 FadeAnimation="*res://00_Global_Commons/scenes/fade_animation.tscn"
+ButtonAnimation="*res://00_Global_Commons/scripts/button_animation.gd"
+GlobalVariables="*res://00_Global_Commons/scripts/global_variables.gd"
 
 [display]
 
@@ -35,8 +37,8 @@ window/stretch/aspect="expand"
 
 [global_group]
 
-button_sound=""
 click_sound=""
+button_sound=""
 
 [input]
 

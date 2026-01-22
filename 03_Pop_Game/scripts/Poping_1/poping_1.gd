@@ -20,12 +20,19 @@ func spawn_bubble():
 		new_bubble.poped.connect(on_bubble_poped)
 		new_bubble.automatic_poped.connect(on_automatic_poped)
 
+func on_lessons_route():
+	var num = GlobalVariables.lesson_route_selected_number
+	if num == 1:
+		Level_Control.Next_Scene = "res://04_Collect_Game/scenes/collecting_1.tscn"
+func You_Won():
+	Level_Control.show_with_fade("retry")
+	Level_Control.show_with_fade("next")
+	on_lessons_route()
 
 func on_bubble_poped():
 	progressbar.value += 1
 	if progressbar.value >= 10:
-		Level_Control.show_with_fade("retry")
-		Level_Control.show_with_fade("next")
+		You_Won()
 		Progress_Bar_Logo.modulate.a = 255
 		isWin = true
 		

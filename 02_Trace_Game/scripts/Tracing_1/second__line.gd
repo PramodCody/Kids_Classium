@@ -1,11 +1,9 @@
 extends Path2D
-
 @onready var line = $Line2D
 @onready var Tracing_Sound = $"../../Drawing_Sound_second"
 @onready var Level_Control = $"../../Level_Control"
 
 var isDrawing_Sound_enable : bool
-
 var is_tracing : bool = false
 
 var current_point_index = 0
@@ -14,6 +12,11 @@ var second_line_point_count = second_line_curve.get_point_count()
 
 var is_second_line_start_point_completed = false
 var is_second_line_end_point_completed = false
+
+
+
+		
+
 
 func check_tracing(global_pos: Vector2):
 	# Convert global position to Path2D's local space
@@ -38,10 +41,17 @@ func check_tracing(global_pos: Vector2):
 
 		if is_second_line_start_point_completed and is_second_line_end_point_completed:
 			is_tracing = false
-			Level_Control.show_with_fade("retry")
-			Level_Control.show_with_fade("next")
 			isDrawing_Sound_enable = false
+			You_Won()
 
+func on_lessons_route():
+	var num = GlobalVariables.lesson_route_selected_number
+	if num == 1:
+		Level_Control.Next_Scene = "res://03_Pop_Game/scenes/Poping_1.tscn"
+func You_Won():
+	Level_Control.show_with_fade("retry")
+	Level_Control.show_with_fade("next")
+	on_lessons_route()
 
 func _input(event: InputEvent) -> void:
 	if is_tracing:

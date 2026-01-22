@@ -20,6 +20,7 @@ func show_with_fade(button : String):
 		Next_Node.visible = true
 		Next_Node.modulate.a = 0.0
 	
+	
 	var tween = create_tween()
 	tween.tween_property(Current_Button, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
@@ -54,9 +55,11 @@ func up_Bubbly_Doubly(button: String):
 
 func _on_retry_button_button_down() -> void:
 	down_Bubbly_Doubly("retry")
+	await AudioManager.Button_Sound.finished
 
 func _on_retry_button_button_up() -> void:
 	up_Bubbly_Doubly("retry")
+	await AudioManager.Button_Sound.finished
 	if Retry_Scene != "":
 		get_tree().change_scene_to_file(Retry_Scene)
 
@@ -64,8 +67,10 @@ func _on_retry_button_button_up() -> void:
 
 func _on_next_button_button_down() -> void:
 	down_Bubbly_Doubly("next")
+	await AudioManager.Button_Sound.finished
 
 func _on_next_button_button_up() -> void:
 	up_Bubbly_Doubly("next")
+	await AudioManager.Button_Sound.finished
 	if Next_Scene != "":
 		get_tree().change_scene_to_file(Next_Scene)

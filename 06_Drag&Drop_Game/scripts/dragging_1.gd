@@ -68,9 +68,17 @@ func _ready() -> void:
 		spawn_zero()
 		spawn_one()
 		spawn_two()
+		
+func on_lessons_route():
+	var num = GlobalVariables.lesson_route_selected_number
+	if num == 1:
+		Level_Control.Next_Scene = "res://02_Trace_Game/scenes/Tracing_1.tscn"
+func You_Won():
+	Level_Control.show_with_fade("retry")
+	Level_Control.show_with_fade("next")
+	on_lessons_route()
 
 func on_mission_accomplished():
 	mission_counter += 1
 	if mission_counter == 3:
-		Level_Control.show_with_fade("retry")
-		Level_Control.show_with_fade("next")
+		You_Won()

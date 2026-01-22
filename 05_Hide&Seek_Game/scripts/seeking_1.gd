@@ -32,11 +32,19 @@ func spawn_number():
 	new_number.position = spawn_positions[random_index] - new_number.size/2
 	new_number.found_number.connect(on_finding_number)
 
+func on_lessons_route():
+	var num = GlobalVariables.lesson_route_selected_number
+	if num == 1:
+		Level_Control.Next_Scene = "res://06_Drag&Drop_Game/scene/dragging_1.tscn"
+func You_Won():
+	Level_Control.show_with_fade("retry")
+	Level_Control.show_with_fade("next")
+	on_lessons_route()
+
 func on_finding_number():
 	progress_bar.value += 1
 	if progress_bar.value == progress_bar.max_value:
-		Level_Control.show_with_fade("retry")
-		Level_Control.show_with_fade("next")
+		You_Won()
 
 func _ready() -> void:
 	for i in 10:

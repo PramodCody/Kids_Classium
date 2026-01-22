@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dw1avd6aemusn"]
+[gd_scene load_steps=2 format=3 uid="uid://dw1avd6aemusn"]
+
+[ext_resource type="Script" uid="uid://sub8stn1lvk3" path="res://01_Main_Screen/02_Levels_Collection/scripts/lessons_collection.gd" id="1_ixd7m"]
 
 [node name="Lessons_Collection" type="Control"]
 layout_mode = 3
@@ -7,6 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_ixd7m")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
@@ -19,33 +23,37 @@ theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 50
 columns = 3
 
-[node name="Button" type="Button" parent="GridContainer"]
+[node name="123" type="Button" parent="GridContainer" groups=["button_sound"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 100
 text = "123"
 
-[node name="Button2" type="Button" parent="GridContainer"]
+[node name="ABC" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 100
 text = "ABC"
 
-[node name="Button3" type="Button" parent="GridContainer"]
+[node name="abc" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 100
 text = "abc"
 
-[node name="Button4" type="Button" parent="GridContainer"]
+[node name="kaKha" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button5" type="Button" parent="GridContainer"]
+[node name="aakDui" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[connection signal="button_down" from="GridContainer/123" to="." method="_on__button_down"]
+[connection signal="button_up" from="GridContainer/123" to="." method="_on__button_up"]

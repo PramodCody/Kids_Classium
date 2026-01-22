@@ -20,12 +20,19 @@ func on_star_out_of_reach():
 		return
 	spawn_star(Vector2(randf_range(2400, 3500), randf_range(200, 880)))
 
+func on_lessons_route():
+	var num = GlobalVariables.lesson_route_selected_number
+	if num == 1:
+		Level_Control.Next_Scene = "res://05_Hide&Seek_Game/scenes/seeking_1.tscn"
+func You_Won():
+	Level_Control.show_with_fade("retry")
+	Level_Control.show_with_fade("next")
+	on_lessons_route()
 
 func on_spaceship_collision_with_target_star():
 	progress_bar.value += 1
 	if progress_bar.value == 10:
-		Level_Control.show_with_fade("retry")
-		Level_Control.show_with_fade("next")
+		You_Won()
 		return
 	spawn_star(Vector2(randf_range(2400, 3500), randf_range(200, 880)))
 
