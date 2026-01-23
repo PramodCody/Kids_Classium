@@ -1,59 +1,190 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctuvmpaxqms21"]
+[gd_scene load_steps=8 format=3 uid="uid://ctuvmpaxqms21"]
 
 [ext_resource type="Script" uid="uid://ute68146x6xr" path="res://01_Main_Screen/02_Levels_Collection/scripts/popup_lessons_collection.gd" id="1_v300b"]
+[ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="2_ug4gt"]
 
-[node name="popup_Lessons_Collection" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q1qs"]
+bg_color = Color(0.6, 0.5058824, 0.85882354, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ww1tn"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44em8"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ragp"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0372"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[node name="popup_Lessons_Collection" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_0q1qs")
 script = ExtResource("1_v300b")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 50
 columns = 3
 
-[node name="123" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="123" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ug4gt")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_ww1tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_44em8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ragp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f0372")
 text = "123"
 
-[node name="ABC" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="ABC" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ug4gt")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/normal = SubResource("StyleBoxFlat_ww1tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_44em8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ragp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f0372")
 text = "ABC"
 
-[node name="abc" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="abc" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ug4gt")
+theme_override_font_sizes/font_size = 220
+theme_override_styles/normal = SubResource("StyleBoxFlat_ww1tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_44em8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ragp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f0372")
 text = "abc"
 
-[node name="kaKha" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="kaKha" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ug4gt")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_ww1tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_44em8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ragp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f0372")
+text = "KaKha"
 
-[node name="aakDui" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="aakDui" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ug4gt")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_ww1tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_44em8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ragp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f0372")
+text = "AakDui"
 
-[connection signal="button_down" from="GridContainer/123" to="." method="_on__button_down"]
-[connection signal="button_up" from="GridContainer/123" to="." method="_on__button_up"]
+[connection signal="button_down" from="MarginContainer/GridContainer/123" to="." method="_on__button_down"]
+[connection signal="button_up" from="MarginContainer/GridContainer/123" to="." method="_on__button_up"]

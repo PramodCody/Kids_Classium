@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://h5v21uy88gxx"]
+[gd_scene load_steps=7 format=3 uid="uid://h5v21uy88gxx"]
 
 [ext_resource type="Script" uid="uid://c3ddbt0slfj75" path="res://01_Main_Screen/02_Levels_Collection/scripts/games_collection.gd" id="1_815nv"]
+[ext_resource type="Texture2D" uid="uid://dsrshiohw4j7y" path="res://01_Main_Screen/02_Levels_Collection/assests/Trace.png" id="2_ueedi"]
+[ext_resource type="Texture2D" uid="uid://b73b7lno0ur55" path="res://01_Main_Screen/02_Levels_Collection/assests/Pop.png" id="3_f17bd"]
+[ext_resource type="Texture2D" uid="uid://caq84cpnxvh3r" path="res://01_Main_Screen/02_Levels_Collection/assests/Collect.png" id="4_0jf7l"]
+[ext_resource type="Texture2D" uid="uid://u2ws7di4akt5" path="res://01_Main_Screen/02_Levels_Collection/assests/HideSeek.png" id="5_5q1np"]
+[ext_resource type="Texture2D" uid="uid://dqsbxr04tq6g6" path="res://01_Main_Screen/02_Levels_Collection/assests/DragDrop.png" id="6_8jdpx"]
 
 [node name="Games_Collection" type="Control"]
 layout_mode = 3
@@ -9,7 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("1_815nv")
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -23,45 +27,45 @@ theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 50
 columns = 3
 
-[node name="Trace" type="Button" parent="GridContainer" groups=["button_sound"]]
-custom_minimum_size = Vector2(700, 400)
+[node name="Trace" type="TextureButton" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-text = "Trace"
+texture_normal = ExtResource("2_ueedi")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Pop" type="Button" parent="GridContainer" groups=["button_sound"]]
-custom_minimum_size = Vector2(700, 400)
+[node name="Pop" type="TextureButton" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-text = "Pop"
+texture_normal = ExtResource("3_f17bd")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Collect" type="Button" parent="GridContainer" groups=["button_sound"]]
-custom_minimum_size = Vector2(700, 400)
+[node name="Collect" type="TextureButton" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-text = "Collect"
+texture_normal = ExtResource("4_0jf7l")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="HideSeek" type="Button" parent="GridContainer" groups=["button_sound"]]
-custom_minimum_size = Vector2(700, 400)
+[node name="HideSeek" type="TextureButton" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-text = "Hide & Seek"
+texture_normal = ExtResource("5_5q1np")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="DragDrop" type="Button" parent="GridContainer" groups=["button_sound"]]
-custom_minimum_size = Vector2(700, 400)
+[node name="DragDrop" type="TextureButton" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-text = "Drag & Drop"
+texture_normal = ExtResource("6_8jdpx")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="button_down" from="GridContainer/Trace" to="." method="_on_trace_button_down"]
 [connection signal="button_up" from="GridContainer/Trace" to="." method="_on_trace_button_up"]

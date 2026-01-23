@@ -1,6 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw1avd6aemusn"]
+[gd_scene load_steps=9 format=3 uid="uid://dw1avd6aemusn"]
 
 [ext_resource type="Script" uid="uid://sub8stn1lvk3" path="res://01_Main_Screen/02_Levels_Collection/scripts/lessons_collection.gd" id="1_ixd7m"]
+[ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="2_l4f0b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4f0b"]
+bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7w2b"]
+bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42snf"]
+bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv6mr"]
+bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdepd"]
+bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi0gw"]
+bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 10
 
 [node name="Lessons_Collection" type="Control"]
 layout_mode = 3
@@ -28,32 +77,66 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_l4f0b")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_l4f0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l4f0b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7w2b")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l4f0b")
 text = "123"
 
 [node name="ABC" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_l4f0b")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/normal = SubResource("StyleBoxFlat_42snf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv6mr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wdepd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pi0gw")
 text = "ABC"
 
 [node name="abc" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_l4f0b")
+theme_override_font_sizes/font_size = 220
+theme_override_styles/normal = SubResource("StyleBoxFlat_42snf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv6mr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wdepd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pi0gw")
 text = "abc"
 
 [node name="kaKha" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_l4f0b")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_42snf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv6mr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wdepd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pi0gw")
+text = "KaKha"
 
 [node name="aakDui" type="Button" parent="GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_l4f0b")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_42snf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv6mr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wdepd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pi0gw")
+text = "AakDui"
 
 [connection signal="button_down" from="GridContainer/123" to="." method="_on__button_down"]
 [connection signal="button_up" from="GridContainer/123" to="." method="_on__button_up"]

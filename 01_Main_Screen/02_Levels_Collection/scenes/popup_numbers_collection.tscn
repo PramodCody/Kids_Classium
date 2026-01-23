@@ -1,104 +1,348 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1up6u5wg74n5"]
+[gd_scene load_steps=12 format=3 uid="uid://d1up6u5wg74n5"]
 
 [ext_resource type="Script" uid="uid://cw6cg7l0tm33s" path="res://01_Main_Screen/02_Levels_Collection/scripts/popup_numbers_collection.gd" id="1_eegtb"]
+[ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="2_64q6l"]
 
-[node name="popup_Numbers_Collection" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txyn7"]
+bg_color = Color(0.6, 0.5058824, 0.85882354, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eegtb"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64q6l"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_585nt"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx2ob"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jas4k"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhs51"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sep1u"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjdrc"]
+bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8578234, 0.26761955, 0.8055864, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+
+[node name="popup_Numbers_Collection" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_txyn7")
 script = ExtResource("1_eegtb")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 60
 columns = 5
 
-[node name="Button" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_eegtb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_64q6l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_585nt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kx2ob")
 text = "0"
 
-[node name="Button1" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button1" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "1"
 
-[node name="Button2" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button2" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "2"
 
-[node name="Button3" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button3" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "3"
 
-[node name="Button4" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button4" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "4"
 
-[node name="Button5" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button5" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "5"
 
-[node name="Button6" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button6" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "6"
 
-[node name="Button7" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button7" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "7"
 
-[node name="Button8" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button8" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "8"
 
-[node name="Button9" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button9" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "9"
 
-[node name="Button10" type="Button" parent="GridContainer" groups=["button_sound"]]
+[node name="Button10" type="Button" parent="MarginContainer/GridContainer" groups=["button_sound"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_64q6l")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_jas4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhs51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "10"
 
-[connection signal="button_down" from="GridContainer/Button1" to="." method="_on_button_1_button_down"]
-[connection signal="button_up" from="GridContainer/Button1" to="." method="_on_button_1_button_up"]
+[connection signal="button_down" from="MarginContainer/GridContainer/Button1" to="." method="_on_button_1_button_down"]
+[connection signal="button_up" from="MarginContainer/GridContainer/Button1" to="." method="_on_button_1_button_up"]

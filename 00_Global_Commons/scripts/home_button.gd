@@ -14,7 +14,7 @@ func _on_button_down() -> void:
 
 
 func _on_button_up() -> void:
-	
+	GlobalVariables.lesson_route_selected_number = -1
 	pivot_offset = size/2
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, animation_speed * 4)\

@@ -1,22 +1,100 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsevj3sgyqu8q"]
+[gd_scene load_steps=19 format=3 uid="uid://dsevj3sgyqu8q"]
 
 [ext_resource type="Script" uid="uid://bfe6g8f7kqkx4" path="res://00_Global_Commons/scripts/safe_area.gd" id="1_n64cy"]
 [ext_resource type="PackedScene" uid="uid://dw1avd6aemusn" path="res://01_Main_Screen/02_Levels_Collection/scenes/lessons_collection.tscn" id="2_bbf88"]
 [ext_resource type="Script" uid="uid://chmnj5o8j7lrr" path="res://01_Main_Screen/02_Levels_Collection/scripts/toggle_buttons.gd" id="2_mndmb"]
 [ext_resource type="PackedScene" uid="uid://h5v21uy88gxx" path="res://01_Main_Screen/02_Levels_Collection/scenes/games_collection.tscn" id="3_oxbjo"]
+[ext_resource type="FontFile" uid="uid://3wdruuibrgf1" path="res://01_Main_Screen/03_Settings/assests/Button_Font.otf" id="3_yxg0r"]
 [ext_resource type="PackedScene" uid="uid://d1up6u5wg74n5" path="res://01_Main_Screen/02_Levels_Collection/scenes/popup_numbers_collection.tscn" id="4_etwha"]
 [ext_resource type="PackedScene" uid="uid://ctuvmpaxqms21" path="res://01_Main_Screen/02_Levels_Collection/scenes/popup_lessons_collection.tscn" id="6_o82pf"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_n64cy"]
+[sub_resource type="Gradient" id="Gradient_o82pf"]
+colors = PackedColorArray(1, 0.37254903, 0.42745098, 1, 1, 0.7647059, 0.44313726, 1)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_bbf88"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yxg0r"]
+gradient = SubResource("Gradient_o82pf")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
 
-[node name="Levels_Collection" type="Panel"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3f0t"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev6p0"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 6
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmbto"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 3
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6smp2"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_o82pf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wixrr"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7aii"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 6
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f2a1"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 3
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cudg"]
+bg_color = Color(0.03529412, 0.46666667, 0.4392157, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_offset = Vector2(10, 10)
+
+[node name="Levels_Collection" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = SubResource("GradientTexture2D_yxg0r")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -36,6 +114,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 
 [node name="Toggle_Buttons" type="HBoxContainer" parent="MarginContainer/Main_Box"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.14
@@ -49,9 +128,20 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_yxg0r")
 theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f0t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ev6p0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tmbto")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6smp2")
 toggle_mode = true
-button_group = SubResource("ButtonGroup_n64cy")
+button_group = SubResource("ButtonGroup_o82pf")
 text = "Lessons"
 
 [node name="Control2" type="Control" parent="MarginContainer/Main_Box/Toggle_Buttons"]
@@ -62,9 +152,20 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.50980395, 0.22745098, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_yxg0r")
 theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_wixrr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f7aii")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5f2a1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6cudg")
 toggle_mode = true
-button_group = SubResource("ButtonGroup_bbf88")
+button_group = SubResource("ButtonGroup_o82pf")
 text = "Games"
 
 [node name="Control3" type="Control" parent="MarginContainer/Main_Box/Toggle_Buttons"]
@@ -81,47 +182,31 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Lessons_Collection" parent="MarginContainer/Main_Box/Button_Collections" instance=ExtResource("2_bbf88")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Games_Collection" parent="MarginContainer/Main_Box/Button_Collections" instance=ExtResource("3_oxbjo")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
-[node name="Popups_Collection" type="HBoxContainer" parent="MarginContainer/Main_Box/Button_Collections"]
+[node name="Popups_Collection" type="MarginContainer" parent="MarginContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-mouse_filter = 0
+theme_override_constants/margin_left = 170
+theme_override_constants/margin_top = 54
+theme_override_constants/margin_right = 170
+theme_override_constants/margin_bottom = 54
 
-[node name="Control" type="Control" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button_Popups" type="MarginContainer" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.5
-mouse_filter = 0
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_bottom = 200
-
-[node name="popup_Numbers_Collection" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection/Button_Popups" instance=ExtResource("4_etwha")]
+[node name="popup_Numbers_Collection" parent="MarginContainer/Popups_Collection" instance=ExtResource("4_etwha")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="popup_Lessons_Collection" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection/Button_Popups" instance=ExtResource("6_o82pf")]
+[node name="popup_Lessons_Collection" parent="MarginContainer/Popups_Collection" instance=ExtResource("6_o82pf")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-
-[node name="Control2" type="Control" parent="MarginContainer/Main_Box/Button_Collections/Popups_Collection"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button_Popups" type="CanvasLayer" parent="."]
-visible = false
 
 [connection signal="toggled" from="MarginContainer/Main_Box/Toggle_Buttons/toggle_Lessons" to="MarginContainer/Main_Box/Toggle_Buttons" method="_on_toggle_lessons_toggled"]
 [connection signal="toggled" from="MarginContainer/Main_Box/Toggle_Buttons/toggle_Games" to="MarginContainer/Main_Box/Toggle_Buttons" method="_on_toggle_games_toggled"]

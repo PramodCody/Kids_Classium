@@ -9,7 +9,7 @@ func play_click_sound(toggle_on: bool): #toggled on is important
 	Click_Sound.playing = true
 
 func on_button_down(node):
-	Button_Sound.playing = true
+	#Button_Sound.playing = true
 	ButtonAnimation.button_down_animation(node)
 func on_button_up(node):
 	Button_Sound.playing = true
