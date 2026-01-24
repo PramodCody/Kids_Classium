@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1up6u5wg74n5"]
+[gd_scene load_steps=14 format=3 uid="uid://d1up6u5wg74n5"]
 
 [ext_resource type="Script" uid="uid://cw6cg7l0tm33s" path="res://01_Main_Screen/02_Levels_Collection/scripts/popup_numbers_collection.gd" id="1_eegtb"]
 [ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="2_64q6l"]
+[ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="3_txyn7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txyn7"]
 bg_color = Color(0.6, 0.5058824, 0.85882354, 1)
@@ -13,7 +14,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 50
+shadow_size = 200
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eegtb"]
 bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
@@ -118,6 +119,10 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 shadow_size = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_585nt"]
+atlas = ExtResource("3_txyn7")
+region = Rect2(536, 37, 431, 431)
 
 [node name="popup_Numbers_Collection" type="Panel"]
 anchors_preset = 15
@@ -344,5 +349,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_sep1u")
 theme_override_styles/focus = SubResource("StyleBoxFlat_jjdrc")
 text = "10"
 
+[node name="Back_Button" type="TextureButton" parent="." groups=["button_sound"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_bottom = 113.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_585nt")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="button_down" from="MarginContainer/GridContainer/Button1" to="." method="_on_button_1_button_down"]
 [connection signal="button_up" from="MarginContainer/GridContainer/Button1" to="." method="_on_button_1_button_up"]
+[connection signal="button_up" from="Back_Button" to="." method="_on_back_button_button_up"]

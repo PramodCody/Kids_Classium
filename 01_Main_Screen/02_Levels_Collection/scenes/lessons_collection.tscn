@@ -9,7 +9,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 10
+shadow_size = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7w2b"]
 bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
@@ -17,7 +17,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 15
+shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42snf"]
 bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
@@ -25,7 +25,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 10
+shadow_size = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv6mr"]
 bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
@@ -33,7 +33,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 10
+shadow_size = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdepd"]
 bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
@@ -41,7 +41,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 20
+shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi0gw"]
 bg_color = Color(0.06100855, 0.20285092, 0.3491902, 1)
@@ -49,7 +49,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 10
+shadow_size = 6
 
 [node name="Lessons_Collection" type="Control"]
 layout_mode = 3
@@ -74,6 +74,7 @@ columns = 3
 
 [node name="123" type="Button" parent="GridContainer" groups=["button_sound"]]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

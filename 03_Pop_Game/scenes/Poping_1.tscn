@@ -49,3 +49,5 @@ texture = ExtResource("10_uryvf")
 [node name="Level_Control" parent="." instance=ExtResource("4_6atvc")]
 layout_mode = 1
 Retry_Scene = "res://03_Pop_Game/scenes/Poping_1.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

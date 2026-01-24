@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctuvmpaxqms21"]
+[gd_scene load_steps=10 format=3 uid="uid://ctuvmpaxqms21"]
 
 [ext_resource type="Script" uid="uid://ute68146x6xr" path="res://01_Main_Screen/02_Levels_Collection/scripts/popup_lessons_collection.gd" id="1_v300b"]
 [ext_resource type="FontFile" uid="uid://bacib2a5cl6vh" path="res://01_Main_Screen/03_Settings/assests/Poppins-BlackItalic.ttf" id="2_ug4gt"]
+[ext_resource type="Texture2D" uid="uid://cvxnovl846ury" path="res://00_Global_Commons/assests/General_Button.webp" id="3_0q1qs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q1qs"]
 bg_color = Color(0.6, 0.5058824, 0.85882354, 1)
@@ -13,7 +14,7 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-shadow_size = 50
+shadow_size = 200
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ww1tn"]
 bg_color = Color(0.15686275, 0.654902, 0.27058825, 1)
@@ -66,6 +67,10 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 shadow_size = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww1tn"]
+atlas = ExtResource("3_0q1qs")
+region = Rect2(536, 37, 431, 431)
 
 [node name="popup_Lessons_Collection" type="Panel"]
 anchors_preset = 15
@@ -186,5 +191,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3ragp")
 theme_override_styles/focus = SubResource("StyleBoxFlat_f0372")
 text = "AakDui"
 
+[node name="Back_Button" type="TextureButton" parent="." groups=["button_sound"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_bottom = 113.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_ww1tn")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="button_down" from="MarginContainer/GridContainer/123" to="." method="_on__button_down"]
 [connection signal="button_up" from="MarginContainer/GridContainer/123" to="." method="_on__button_up"]
+[connection signal="button_up" from="Back_Button" to="." method="_on_back_button_button_up"]

@@ -1,6 +1,4 @@
 extends Control
-@onready var Button_123 = %"123"
-@onready var popup_Lessons_Collection = %popup_Lessons_Collection
 @onready var Games_Collection = %Games_Collection
 var scene : String
 
@@ -23,3 +21,9 @@ func _on__button_down() -> void:
 	pass
 func _on__button_up() -> void:
 	FadeAnimation.change_scene(scene)
+
+@onready var Popups_Colllection = %Popups_Collection
+@onready var popup_Lessons_Collection = %popup_Lessons_Collection
+func _on_back_button_button_up() -> void:
+	popup_Lessons_Collection.visible = false
+	Popups_Colllection.visible = false
