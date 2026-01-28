@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://cueuomcgyb4xj"]
+
+[ext_resource type="Script" uid="uid://bhv3lb28gaq86" path="res://Test/static_background.gd" id="1_7f3gx"]
+[ext_resource type="Texture2D" uid="uid://wwvhtyl18iro" path="res://Test/Clear_Sky.png" id="2_e6h5k"]
+[ext_resource type="Texture2D" uid="uid://dorr58xcdrj2g" path="res://Test/Road.png" id="3_0gfis"]
+[ext_resource type="Texture2D" uid="uid://6xjqcqoabv2a" path="res://Test/Tree.png" id="3_ugln7"]
+[ext_resource type="Texture2D" uid="uid://cplxr6stt4yl8" path="res://Test/Bushes.png" id="5_ugln7"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7f3gx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 1739.0
+offset_top = 844.0
+offset_right = 2015.0
+offset_bottom = 999.0
+theme_override_font_sizes/font_size = 80
+text = "Retry"
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 2068.0
+offset_top = 839.0
+offset_right = 2344.0
+offset_bottom = 994.0
+theme_override_font_sizes/font_size = 80
+text = "Next"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Clear_Sky" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 2400.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_e6h5k")
+stretch_mode = 4
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Tree" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2052, 328)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ugln7")
+
+[node name="Tree2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(284.00012, 345)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ugln7")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Road" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+offset_top = 733.0
+offset_right = 2400.0
+offset_bottom = 1085.0
+texture = ExtResource("3_0gfis")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Shrub" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(2394, 922)
+texture = ExtResource("5_ugln7")
+
+[node name="Shrub2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(2057, 729)
+texture = ExtResource("5_ugln7")
+
+[node name="Shrub3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(295, 757)
+texture = ExtResource("5_ugln7")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]

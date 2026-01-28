@@ -44,7 +44,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Node2D" type="Node2D" parent="."]
 z_index = -9
 position = Vector2(-279, -97)
-metadata/_edit_group_ = true
 
 [node name="First_Line" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_eby7c")

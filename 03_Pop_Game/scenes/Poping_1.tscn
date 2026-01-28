@@ -1,9 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://8nlh2lbgomlv"]
+[gd_scene load_steps=9 format=3 uid="uid://8nlh2lbgomlv"]
 
 [ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://02_Trace_Game/assests/images/Background.png" id="1_a1ij8"]
 [ext_resource type="Script" uid="uid://cif56bo0l5jg7" path="res://03_Pop_Game/scripts/Poping_1/poping_1.gd" id="2_ugcpd"]
 [ext_resource type="PackedScene" uid="uid://b6w6jjr5fpfio" path="res://00_Global_Commons/scenes/level_control.tscn" id="4_6atvc"]
-[ext_resource type="Texture2D" uid="uid://b5d7cjry8tnyr" path="res://03_Pop_Game/assests/images/Progress_bar_logo.png" id="10_uryvf"]
+[ext_resource type="Script" uid="uid://bfe6g8f7kqkx4" path="res://00_Global_Commons/scripts/safe_area.gd" id="5_wymkm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gccg1"]
+bg_color = Color(0.12156863, 0.16078432, 0.2, 1)
+border_width_left = 10
+border_width_top = 9
+border_width_right = 10
+border_width_bottom = 9
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wymkm"]
+bg_color = Color(0.23137255, 0.50980395, 0.9647059, 1)
+border_width_left = 10
+border_width_top = 9
+border_width_right = 10
+border_width_bottom = 9
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6atvc"]
+bg_color = Color(0.56555873, 0.5089823, 0.7866333, 1)
+border_width_left = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6atvc"]
+font_size = 50
+font_color = Color(1, 0.4627451, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.7607843)
 
 [node name="Poping_1" type="Control"]
 layout_mode = 3
@@ -12,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("2_ugcpd")
 metadata/_edit_use_anchors_ = true
 
@@ -23,31 +65,81 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = ExtResource("1_a1ij8")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("5_wymkm")
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -500.0
-offset_top = 70.0
+offset_top = 15.0
 offset_right = 500.0
-offset_bottom = 135.0
+offset_bottom = 65.0
 grow_horizontal = 2
 mouse_filter = 2
-max_value = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gccg1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wymkm")
+max_value = 1000.0
 rounded = true
 show_percentage = false
 
-[node name="ProgressBarLogo" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.7058824)
-position = Vector2(1200, 120)
-texture = ExtResource("10_uryvf")
+[node name="Panel" type="Panel" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = 56.0
+offset_right = 51.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6atvc")
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -49.0
+offset_right = 20.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_6atvc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bubble_Spawn_Timer" type="Timer" parent="MarginContainer/Control"]
+wait_time = 3.0
+autostart = true
+
+[node name="One_Spawn_Timer" type="Timer" parent="MarginContainer/Control"]
+wait_time = 5.5
+autostart = true
 
 [node name="Level_Control" parent="." instance=ExtResource("4_6atvc")]
+visible = false
 layout_mode = 1
 Retry_Scene = "res://03_Pop_Game/scenes/Poping_1.tscn"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[connection signal="timeout" from="MarginContainer/Control/Bubble_Spawn_Timer" to="." method="_on_bubble_spawn_timer_timeout"]
+[connection signal="timeout" from="MarginContainer/Control/One_Spawn_Timer" to="." method="_on_one_spawn_timer_timeout"]
