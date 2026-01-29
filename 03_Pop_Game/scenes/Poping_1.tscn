@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://8nlh2lbgomlv"]
+[gd_scene load_steps=10 format=3 uid="uid://8nlh2lbgomlv"]
 
 [ext_resource type="Texture2D" uid="uid://bwdvpr806e8al" path="res://02_Trace_Game/assests/images/Background.png" id="1_a1ij8"]
 [ext_resource type="Script" uid="uid://cif56bo0l5jg7" path="res://03_Pop_Game/scripts/Poping_1/poping_1.gd" id="2_ugcpd"]
 [ext_resource type="PackedScene" uid="uid://b6w6jjr5fpfio" path="res://00_Global_Commons/scenes/level_control.tscn" id="4_6atvc"]
+[ext_resource type="AudioStream" uid="uid://dshnrlhpu876y" path="res://02_Trace_Game/assests/sounds/Drawing_Sound.mp3" id="4_wymkm"]
 [ext_resource type="Script" uid="uid://bfe6g8f7kqkx4" path="res://00_Global_Commons/scripts/safe_area.gd" id="5_wymkm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gccg1"]
@@ -135,6 +136,10 @@ autostart = true
 [node name="One_Spawn_Timer" type="Timer" parent="MarginContainer/Control"]
 wait_time = 5.5
 autostart = true
+
+[node name="ProgressBar_Sound" type="AudioStreamPlayer2D" parent="MarginContainer/Control"]
+stream = ExtResource("4_wymkm")
+volume_db = 5.0
 
 [node name="Level_Control" parent="." instance=ExtResource("4_6atvc")]
 visible = false

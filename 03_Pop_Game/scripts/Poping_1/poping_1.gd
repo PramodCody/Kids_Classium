@@ -36,13 +36,16 @@ func You_Won():
 
 func on_bubble_poped():
 	isProgressAnimation = true
+	ProgressBar_Sound.playing = true
 
+@onready var ProgressBar_Sound = $MarginContainer/Control/ProgressBar_Sound
 var animation_value = 0
 func _process(delta: float) -> void:
 	if isProgressAnimation:
 		progressbar.value += 1
 		animation_value += 1
 		if animation_value >= progressbar.max_value/10:
+			ProgressBar_Sound.stop()
 			isProgressAnimation = false
 			animation_value = 0
 			if progressbar.value >= progressbar.max_value:

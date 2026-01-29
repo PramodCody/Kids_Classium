@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bvvr3nkglh250" path="res://03_Pop_Game/assests/images/Bubble.png" id="1_ggrd6"]
 [ext_resource type="Script" uid="uid://dfdqrrhdscb0u" path="res://03_Pop_Game/commons/bubble_pop.gd" id="2_ggrd6"]
-[ext_resource type="AudioStream" uid="uid://dh20vkmgke3ej" path="res://03_Pop_Game/assests/images/pop.mp3" id="3_cq8jn"]
-[ext_resource type="AudioStream" uid="uid://cc2tevsvcncn4" path="res://03_Pop_Game/assests/images/non_pop.mp3" id="4_y34d0"]
+[ext_resource type="AudioStream" uid="uid://dh20vkmgke3ej" path="res://03_Pop_Game/assests/sound/pop.mp3" id="3_cq8jn"]
+[ext_resource type="AudioStream" uid="uid://cc2tevsvcncn4" path="res://03_Pop_Game/assests/sound/non_pop.mp3" id="4_y34d0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ad5by"]
 font_size = 400
@@ -37,6 +37,7 @@ script = ExtResource("2_ggrd6")
 
 [node name="Bubble" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.64705884)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_ggrd6")
 
 [node name="Label" type="Label" parent="Bubble"]
@@ -64,7 +65,7 @@ scale = Vector2(18, 18)
 shape = SubResource("CircleShape2D_cehtc")
 
 [node name="Pop_Effect" type="GPUParticles2D" parent="."]
-scale = Vector2(2.3599997, 2.3599997)
+scale = Vector2(7.2014375, -6.161697)
 emitting = false
 amount = 50
 lifetime = 0.5
@@ -75,9 +76,10 @@ process_material = SubResource("ParticleProcessMaterial_y34d0")
 
 [node name="Pop_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_cq8jn")
-volume_db = 5.0
+volume_db = 10.0
 
 [node name="Non_Pop_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_y34d0")
+volume_db = 5.0
 
 [connection signal="input_event" from="Bubble/Area2D" to="." method="_on_area_2d_input_event"]
